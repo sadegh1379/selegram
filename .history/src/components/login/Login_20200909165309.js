@@ -27,12 +27,11 @@ const useStyles = makeStyles((theme) => ({
   
   textInput:{
     width:'280px',
-    // marginTop:'50px',
+    margin:'auto',
+    marginTop:'50px',
     backgroundColor :'#ECEFF1',
-    height:'40px',
-  
     
-
+    padding:'5px'
   
 },
 alert:{
@@ -88,6 +87,7 @@ export default function Login(props) {
            value={text}
            onChange={(e)=>setText(e.target.value)}
           />
+          {err &&  <Alert icon={ <ErrorIcon/>} className={classes.alert} color="error" variant="outlined"> ایمیل یا شماره تلفن را وارد کنید </Alert> }
          
         
           <Button

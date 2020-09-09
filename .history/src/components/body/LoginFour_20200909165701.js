@@ -96,7 +96,7 @@ function LoginFour() {
                         <Grid className={classes.bodyImg} item md={6} sm={6} xs={6}>
                             <img style={{width:'100px' , height:'180px' ,imageResolution:'from-image'}} src={data.select} alt=""/>
                         </Grid>
-                        <Grid item md={6} sm={6} xs={6}>
+                        <Grid item md={7} sm={7} xs={7}>
                             <div  className="text-left">
                                 <IconButton>
                                     <ShareOutlinedIcon/>

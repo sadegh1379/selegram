@@ -29,8 +29,6 @@ const useStyles = makeStyles((theme) => ({
     width:'280px',
     // marginTop:'50px',
     backgroundColor :'#ECEFF1',
-    height:'40px',
-  
     
 
   

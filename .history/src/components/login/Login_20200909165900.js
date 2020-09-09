@@ -27,10 +27,8 @@ const useStyles = makeStyles((theme) => ({
   
   textInput:{
     width:'280px',
-    // marginTop:'50px',
+    marginTop:'50px',
     backgroundColor :'#ECEFF1',
-    height:'40px',
-  
     
 
   

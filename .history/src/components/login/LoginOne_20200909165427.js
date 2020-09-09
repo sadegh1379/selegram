@@ -126,7 +126,7 @@ function LoginOne(props) {
                     className={classes.textInput}
                     margin="normal"
                     error={err}
-                    helperText={err ? "لطفا کد تایید را وارد کنید" : false}
+                    helperText={err ? "شماره تلفن وارد شده اشتباه است" : false}
                     fullWidth
                     label="کد تایید"
                 value={text}

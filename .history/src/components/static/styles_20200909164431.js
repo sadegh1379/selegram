@@ -12,7 +12,9 @@ const useStyles = makeStyles((theme) => ({
     navlogo:{
         textAlign:'center'
     },
-    
+    appBar:{
+        backgroundColor:'red'
+    }
 }))
 
 

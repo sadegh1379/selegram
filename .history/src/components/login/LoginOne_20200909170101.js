@@ -83,7 +83,7 @@ function LoginOne(props) {
         e.preventDefault();
         if(text === ''){
           setErr(true);
-          setTimeout(()=>setErr(false) , 2000)
+          // setTimeout(()=>setErr(false) , 2000)
         }else{
           props.history.push({
             pathname:'/login-3',

@@ -27,12 +27,11 @@ const useStyles = makeStyles((theme) => ({
   
   textInput:{
     width:'280px',
-    // marginTop:'50px',
+    margin:'auto',
+    marginTop:'50px',
     backgroundColor :'#ECEFF1',
-    height:'40px',
-  
     
-
+    padding:'5px'
   
 },
 alert:{
@@ -81,13 +80,13 @@ export default function Login(props) {
           <TextField
             className={classes.textInput}
             margin="normal"
-            error={err}
-            helperText={err ? "شماره تلفن وارد شده اشتباه است" : false}
+            error
             fullWidth
             label="شماره موبایل یا ایمیل"
            value={text}
            onChange={(e)=>setText(e.target.value)}
           />
+          {err &&  <Alert icon={ <ErrorIcon/>} className={classes.alert} color="error" variant="outlined"> ایمیل یا شماره تلفن را وارد کنید </Alert> }
          
         
           <Button

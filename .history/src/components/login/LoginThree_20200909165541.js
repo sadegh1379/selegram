@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import RotateRightIcon from '@material-ui/icons/RotateRight';
 import Alert from '@material-ui/lab/Alert';
 import ErrorIcon from '@material-ui/icons/Error';
 import {Link } from 'react-router-dom';
@@ -65,14 +64,14 @@ const useStyles = makeStyles((theme) => ({
           width:'280px',
           textAlign:'center',
           margin:'0 auto',
-        opacity:'80%',
+        // opacity:'80%',
         fontSize:'bold'
   },
   }));
 
-function LoginOne(props) {
+function LoginThree(props) {
     const classes = useStyles();
-    const phone = props.location.state.phone;
+    
     const [text , setText] = React.useState('');
     const [err , setErr] = React.useState(false);
 
@@ -86,7 +85,7 @@ function LoginOne(props) {
           setTimeout(()=>setErr(false) , 2000)
         }else{
           props.history.push({
-            pathname:'/login-3',
+            pathname:'/',
             
           })
         }
@@ -114,8 +113,8 @@ function LoginOne(props) {
             </Link>
         </div>    
         <div style={{textAlign:'right' , paddingRight:'60px' , marginTop:'49px' }}>
-                    <p  style={{textAlign:'right' ,  fontWeight:'small' , fontFamily:'inherit ' , fontSize:'30px', color:'#404D66'}}>{phone}</p>
-                    <p className="color-text" style={{fontSize:'16px' , opacity:'0.5'}}>لطفا کد دریافت شده را وارد کنید</p>
+                    <p  style={{textAlign:'right' ,  fontWeight:'small'  , fontSize:'30px', color:'#404D66'}}>به سلگرام خوش آمدید!</p>
+                    <p className="color-text" style={{fontSize:'16px'  ,fontWeight:'small', lineHeight:'30px' , paddingLeft:'20px' , opacity:'0.5'}}>برای تکمیل پروفایل خود لطفا نام  و نام خانوادگی  خود را به فارسی وارد کنید</p>
          </div>
         
 
@@ -126,12 +125,13 @@ function LoginOne(props) {
                     className={classes.textInput}
                     margin="normal"
                     error={err}
-                    helperText={err ? "لطفا کد تایید را وارد کنید" : false}
+                    helperText={err ? "لطفا ن" : false}
                     fullWidth
-                    label="کد تایید"
+                    label="نام و نام خانوادگی"
                 value={text}
                 onChange={(e)=>setText(e.target.value)}
                 />
+                {err &&  <Alert icon={ <ErrorIcon/>} className={classes.alert} color="error" variant="outlined"> لطفا نام خود را وارد کنید</Alert> }
                 
                 
                 <Button
@@ -141,19 +141,14 @@ function LoginOne(props) {
                     color="primary"
                     className={classes.btn}
                 >
-                    ادامه
+                    ورود
                 </Button>
             </form>
-            <p style={{textAlign:'center' ,display:'flex' , justifyContent:'center' , color:'#009FFF' , opacity:'30%'}}><RotateRightIcon/>ارسال مجدد کد تایید {"time"}</p>
          
          </div>
-        <div className={classes.footer}>
-                <hr style={{width:'100%'}}/>
-                <p>مشکلی در ورود یا ثبت نام دارید ? با ما تماس بگیرید<span style={{marginRight:'50px'}}>021 6563-44-4525</span></p>
-                
-        </div>
+       
 </>
     )
 }
 
-export default LoginOne;
+export default LoginThree;

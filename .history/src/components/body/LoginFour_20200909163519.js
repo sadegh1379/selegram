@@ -65,7 +65,7 @@ function LoginFour() {
                     {/* information component */}
         
                     <Grid className={classes.informationGrid}>
-                        <Grid item ><img alt="img" style={{width:'40px'}} src={data.kala[2].img}/></Grid>
+                        <Grid item ><img alt="img" style={{width:'70px'}} src={data.kala[2].img}/></Grid>
                         <Grid item  className={classes.informationText}>
                             <span className="font-yekan font-12-px" style={{borderRight:'1px solid black' , paddingRight:'10px' }}>لوازم خانگی  ایگلس</span>
                             <span className="font-yekan  font-10-px" style={{marginRight:'15px' , opacity:'0.5'}}>تهران , شهریار</span><br/>
@@ -93,10 +93,10 @@ function LoginFour() {
                     </Grid><hr style={{margin:'-8px auto'}}/>
                     {/* body */}
                     <Grid className={classes.body}>
-                        <Grid className={classes.bodyImg} item md={6} sm={6} xs={6}>
+                        <Grid className={classes.bodyImg} item md={5} sm={5} xs={5}>
                             <img style={{width:'100px' , height:'180px' ,imageResolution:'from-image'}} src={data.select} alt=""/>
                         </Grid>
-                        <Grid item md={6} sm={6} xs={6}>
+                        <Grid item md={7} sm={7} xs={7}>
                             <div  className="text-left">
                                 <IconButton>
                                     <ShareOutlinedIcon/>
@@ -135,7 +135,7 @@ function LoginFour() {
                     </Grid>
                     {/* Opinion */}
                     <Grid>
-                    <form style={{width:'100%' , marginTop:'10px' , padding:'10px'}}  autoComplete="off">
+                    <form style={{width:'100%' , marginTop:'10px'}}  autoComplete="off">
                         <textarea style={{border:'0px'}} onChange={(e)=>setOpinion(e.target.value)} value={opinion} className="font-yekan opacity"  id="" cols="30" rows="2"></textarea>
                         
                     </form>

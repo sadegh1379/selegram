@@ -11,8 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
     navlogo:{
         textAlign:'center'
-    },
-    
+    }
 }))
 
 
