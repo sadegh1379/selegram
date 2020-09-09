@@ -14,7 +14,7 @@ function App() {
         <Route exact path="/login" component={(props)=><Login {...props}/>} />
         <Route exact path="/login-1" component={(props)=><LoginOne {...props}/>} />
         <Route exact path="/login-3" component={(props)=><LoginThree {...props}/>} />
-        <Route exact path="/" component={(props)=><LoginFour {...props}/>} />
+        <Route exact path="/login-4" component={(props)=><LoginFour {...props}/>} />
       </Switch>
     </div>
   );

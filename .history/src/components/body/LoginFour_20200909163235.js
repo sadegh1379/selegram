@@ -60,7 +60,7 @@ function LoginFour() {
                             })
                             }
                         </ul>
-                    </Grid><hr style={{margin:'-8px auto'}}/>
+                    </Grid><hr style={{margin:'100px'}}/>
 
                     {/* information component */}
         
@@ -90,7 +90,7 @@ function LoginFour() {
                                 </Menu>
                             </div>
                         </Grid>
-                    </Grid><hr style={{margin:'-8px auto'}}/>
+                    </Grid><hr/>
                     {/* body */}
                     <Grid className={classes.body}>
                         <Grid className={classes.bodyImg} item md={5} sm={5} xs={5}>

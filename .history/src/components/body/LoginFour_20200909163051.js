@@ -60,7 +60,7 @@ function LoginFour() {
                             })
                             }
                         </ul>
-                    </Grid><hr style={{margin:'-8px auto'}}/>
+                    </Grid><hr/>
 
                     {/* information component */}
         
@@ -90,7 +90,7 @@ function LoginFour() {
                                 </Menu>
                             </div>
                         </Grid>
-                    </Grid><hr style={{margin:'-8px auto'}}/>
+                    </Grid><hr/>
                     {/* body */}
                     <Grid className={classes.body}>
                         <Grid className={classes.bodyImg} item md={5} sm={5} xs={5}>
@@ -126,10 +126,11 @@ function LoginFour() {
                     <Grid className={classes.liked}>
                                 <IconButton> <FavoriteBorderOutlinedIcon/></IconButton>
                                 <span>23 بار پسنده شده</span>
-                                <span style={{borderLeft:'1px solid black' , margin:'0 5px'}}></span>
+                                <span style={{borderLeft:'1px solid black' , margin:'0 10px'}}></span>
                                 <span className="lighblue lightblue">نظر 28</span>
-                                <span style={{borderLeft:'1px solid black' , margin:'0 5px'}}></span>
-                                <IconButton><StarBorderIcon className={classes.goldstar}/></IconButton>
+                                <span style={{borderLeft:'1px solid black' , margin:'0 10px'}}></span>
+                                
+                                <IconButton></IconButton>
                                 <span>4.5 (12)</span>
                                 
                     </Grid>

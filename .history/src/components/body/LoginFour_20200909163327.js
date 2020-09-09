@@ -60,7 +60,7 @@ function LoginFour() {
                             })
                             }
                         </ul>
-                    </Grid><hr style={{margin:'-8px auto'}}/>
+                    </Grid><hr style={{margin:'-10px auto'}}/>
 
                     {/* information component */}
         
