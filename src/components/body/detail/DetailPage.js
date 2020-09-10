@@ -14,7 +14,7 @@ import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
 import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined';
 import {useContext} from 'react';
-import {context} from '../../context';
+import {context} from '../../../context';
 import Carousel from 'react-material-ui-carousel';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
@@ -145,7 +145,56 @@ const useStyles = makeStyles((theme) => ({
     },
     formGrid:{
         margin:'auto 10px'
+    },
+    buyText:{
+      display:'flex',
+      padding:'10px',
+      textAlign:'center',
+      marginTop:'16px',
+      lineHeight:'5px'
+    },
+    buyText1:{
+      textAlign:'left',
+      width:'100%',
+      paddingLeft:'10px'
+    },
+    buyText2:{
+      textAlign:'center',  
+      width:'100%'
+      
+    },
+    buyBtn:{
+      backgroundColor:'#009FFF',
+      width:'150px',
+      height:'39px',
+      color:'#FFFFFF',
+      fontFamily:'BYekan',
+      marginLeft:'20px',
+      border:'0.5px solid #009FFF',
+      boxShadow:'0px 20px 20px #C2BDBD73',
+      
+      '&:focus':{
+        backgroundColor:'#009FFF',
+        boxShadow:'0px 20px 20px #C2BDBD73',
+      }
+    },
+    Qustion:{
+      marginTop:'36px',
+      marginLeft:'24px',
+      marginBottom:'20px'
+      
+    },
+    QustionText:{
+      opacity:'20%',
+      marginRight:'30px'
+      
+    },
+    buyGrid:{
+      borderBottom:'10px solid #C2BDBD73',
+     
     }
+    
+    
 }))
 
 function Item(props)
@@ -317,7 +366,28 @@ function DetailPage() {
                    
                 </form>
             </Grid>
-   
+            
+            {/* buy grid */}
+            <Grid className={classes.buyGrid}>
+
+                <Grid item  className={classes.buyText}>
+                  <Grid className={classes.buyText1}> <span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">20.350.000</span> <span className="toman-blue">نومان</span> </p></Grid>
+                  <Grid className={classes.buyText2}><span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">22.228.000</span> <span className="toman-blue">نومان</span> </p></Grid>
+                </Grid>
+
+                <Grid item>
+                  <Button className={classes.buyBtn} variant="contained" >
+                    سفارش
+                  </Button>
+                </Grid>
+
+                <Grid item className={classes.Qustion}>
+                      <span className={classes.QustionText}>قیمت منصفانه است؟</span>
+                      <span className="opactity-30 "> بله </span>
+                       <span className="opactity-30 mr-5">   خیر </span>
+                </Grid>
+                
+            </Grid>
     </Grid>
     )
 }

@@ -1,9 +1,9 @@
 import React , {useContext} from 'react';
-import Navbar from '../static/Navbar';
+import Navbar from '../../static/Navbar';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid'
-import {context} from '../../context';
-import useStyles from './styles';
+import {context} from '../../../context';
+import useStyles from '../styles';
 import StarIcon from '@material-ui/icons/Star';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -13,9 +13,9 @@ import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import { IconButton } from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import BottomAppBar from '../static/BottomAppBar';
+import BottomAppBar from '../../static/BottomAppBar';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import Forcolor from './img/forcolor.png';
+import Forcolor from '../img/forcolor.png';
 import {Link} from 'react-router-dom';
 
 

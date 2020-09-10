@@ -5,8 +5,8 @@ import {Switch , Route} from 'react-router-dom';
 import Login from './components/login/Login';
 import LoginOne from './components/login/LoginOne';
 import LoginThree from './components/login/LoginThree';
-import LoginFour from './components/body/LoginFour';
-import DetailPage from './components/body/DetailPage';
+import LoginFour from './components/body/loginfour/LoginFour';
+import DetailPage from './components/body/detail/DetailPage';
 
 function App() {
   return (
