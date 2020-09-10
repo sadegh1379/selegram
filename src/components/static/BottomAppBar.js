@@ -11,9 +11,6 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 
 const useStyles = makeStyles((theme) => ({
   
- 
-  
-  
   appBar: {
     top: 'auto',
     bottom: 0,
@@ -27,11 +24,16 @@ const useStyles = makeStyles((theme) => ({
   toolBar:{
     display:'flex',
     justifyContent:'space-between',
-    alignItems:'center'
+    alignItems:'center',
+    
+    
   },
   icons:{
    
     color:'#707070'
+    ,fontSize:'30px',
+ 
+  
   }
 }));
 

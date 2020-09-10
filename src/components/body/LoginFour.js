@@ -15,6 +15,8 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import BottomAppBar from '../static/BottomAppBar';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import Forcolor from './img/forcolor.png';
+import {Link} from 'react-router-dom';
 
 
 
@@ -24,7 +26,7 @@ function LoginFour() {
     const [opinion , setOpinion] = React.useState('لطفا نظر خود را بنویسید ...');
 
     const data = useContext(context);
-    console.log(data);
+    
 
     // fordropdown---------
 
@@ -60,12 +62,19 @@ function LoginFour() {
                             })
                             }
                         </ul>
-                    </Grid><hr style={{margin:'-8px auto'}}/>
+                    </Grid><hr style={{margin:'-8px auto' }}/>
 
                     {/* information component */}
         
                     <Grid className={classes.informationGrid}>
-                        <Grid item ><img alt="img" style={{width:'40px'}} src={data.kala[2].img}/></Grid>
+                        <Grid  >
+                            <Grid item md={10} sm={10} xs={10}>
+                              <img alt="img" style={{width:'40px'}} src={data.kala[2].img}/>
+                            </Grid>
+                            <Grid item md={2} sm={2} xs={2}>
+                               <img style={{position:'absolute', marginTop:'20px' , marginLeft:'-50px'}} src={Forcolor} alt="colors"/>
+                            </Grid>
+                        </Grid>
                         <Grid item  className={classes.informationText}>
                             <span className="font-yekan font-12-px" style={{borderRight:'1px solid black' , paddingRight:'10px' }}>لوازم خانگی  ایگلس</span>
                             <span className="font-yekan  font-10-px" style={{marginRight:'15px' , opacity:'0.5'}}>تهران , شهریار</span><br/>
@@ -90,11 +99,11 @@ function LoginFour() {
                                 </Menu>
                             </div>
                         </Grid>
-                    </Grid><hr style={{margin:'-8px auto'}}/>
+                    </Grid><hr style={{margin:'-8px auto' , marginBottom:'10px'}}/>
                     {/* body */}
                     <Grid className={classes.body}>
                         <Grid className={classes.bodyImg} item md={6} sm={6} xs={6}>
-                            <img style={{width:'100px' , height:'180px' ,imageResolution:'from-image'}} src={data.select} alt=""/>
+                            <img style={{width:'100%'  ,}} src={data.select} alt="img"/>
                         </Grid>
                         <Grid item md={6} sm={6} xs={6}>
                             <div  className="text-left">
@@ -118,9 +127,11 @@ function LoginFour() {
                     
                     <Grid className={classes.getArrow}>
                         <span className="font-12-px font-yekan"> یخچال و فریزر دوقلوی سامسونگ مدل RR30PN-RZ30PN </span>
-                        <IconButton >
-                                <ArrowBackIosIcon className={classes.color_black}/>
-                        </IconButton>
+                        <Link to="/detailpage">
+                            <IconButton >
+                                    <ArrowBackIosIcon className={classes.color_black}/>
+                            </IconButton>
+                        </Link>
                     </Grid>
                     {/* liked */}
                     <Grid className={classes.liked}>
@@ -144,7 +155,7 @@ function LoginFour() {
             
 
             {/* bottom app bar */}
-            <BottomAppBar img={data.select}/>
+            <BottomAppBar img={data.kala[0].img}/>
         </Grid>
     </React.Fragment>
     )

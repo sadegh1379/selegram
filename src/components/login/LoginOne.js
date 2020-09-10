@@ -4,8 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import RotateRightIcon from '@material-ui/icons/RotateRight';
-import Alert from '@material-ui/lab/Alert';
-import ErrorIcon from '@material-ui/icons/Error';
 import {Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({

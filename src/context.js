@@ -9,7 +9,23 @@ const context = createContext()
         this.state={
             kala:[{
                 name:'sadegh',
-                img:'./img/kala.png'                
+                img:'./img/kala.png',
+                    images:[{
+                        img:'./img/ice.png',
+                    },
+                    {
+                        img:'./img/ice.png',
+                    },
+                    {
+                        img:'./img/ice.png',
+                    },
+                    {
+                        img:'./img/ice.png',
+                    },
+                    {
+                        img:'./img/ice.png',
+                    }
+                ]                
             },
             {
                 name:'sadegh',

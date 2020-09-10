@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     ulf:{
         backgroundColor:'#FA3D3D',
         position:'absolute',
-        left:'-30px',
+        left:'-33px',
         marginTop:'20px',
         padding:'15px',
         // marginLeft:'0px',
@@ -67,6 +67,18 @@ const useStyles = makeStyles((theme) => ({
         color:'gold',
              
     },
+    fcolor:{
+        display:'flex',
+        flexDirection:'column',
+        position:'absolute',
+        marginTop:'10px'
+    },
+    spanGrey:{
+        width:'10px',
+        height:'10px',
+        backgroundColor:'red',
+        padding:'3px'
+    }
  
 }))
 
