@@ -89,5 +89,29 @@ button{
   margin-right: 5px;
 }
 
+.bold{
+  font-size: bold;
+}
 
+.opacity-5{
+  opacity: 0.5;
+}
+.opacity-8{
+  opacity: 80%;
+}
+
+.d-flex{
+  display: flex;
+
+}
+
+.flex-between{
+  justify-content: space-between;
+}
+.flex-items-center{
+  align-items: center;
+}
+.width-100{
+  width: 100%;
+}
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import {makeStyles} from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import {Link } from 'react-router-dom';
 import  MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -19,183 +19,13 @@ import Carousel from 'react-material-ui-carousel';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import TextField from '@material-ui/core/TextField';
+import DetailItem from './DetailItem';
+import useStyles from './DetailPageStyles';
+import Comments from './Comments';
+import Review from './Review';
+import Technical from './Technical';
+import Similar from './Similar'
 
-
-
-
-
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& .MuiTextField-root': {
-        //   margin: theme.spacing(3),
-          width: '100%',
-        },
-        display:'flex',
-        justifyContent:'space-between',
-        alignItems:'center'
-        
-      },
-    topnav:{
-        backgroundColor:'#FCFCFC',
-        padding:'10px 5px',
-        display:'flex',
-        height:'64px',
-        justifyContent:'space-between',
-        alignItems:'center',
-        color:'#212121',
-        lineHeight:'10px'
-    },
-    navText:{
-        display:'flex',
-        justifyContent:'center',
-        flexDirection:'column',
-       
-    },
-    informationGrid:{
-        display:'flex',
-        justifyContent:'space-between',
-        padding:'8px',
-        alignItems:'center'
-    },
-    informationText :{
-        lineHeight:'30px',
-        width:'100%',
-        margin:'0 10px',
-        padding:'0px'
-    },
-    iconsBody:{
-        display:'flex',
-        flexDirection:'row',
-        justifyContent:'space-between'
-    },
-    liked:{
-        
-        display:'felx'
-        ,alignItems:'center',
-        padding:'5px',
-        // marginTop:'-10px',
-        opacity:'0.5'
-    },
-    goldstar:{
-        color:'gold',
-             
-    },
-    
-    selectColor:{
-        "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#009FFF"
-          },
-          "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#009FFF"
-          },
-          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#009FFF"
-          },
-          "& .MuiOutlinedInput-input": {
-            color: "#009FFF"
-          },
-          "&:hover .MuiOutlinedInput-input": {
-            color: "#009FFF"
-          },
-          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
-            color: "#009FFF"
-          },
-          "& .MuiInputLabel-outlined": {
-            color: "#009FFF"
-          },
-          "&:hover .MuiInputLabel-outlined": {
-            color: "#009FFF"
-          },
-          "& .MuiInputLabel-outlined.Mui-focused": {
-            color: "purple"
-          },
-        
-          
-    },
-    selectCount:{
-        "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#009FFF"
-          },
-          "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#009FFF"
-          },
-          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#009FFF"
-          },
-          "& .MuiOutlinedInput-input": {
-            color: "#009FFF"
-          },
-          "&:hover .MuiOutlinedInput-input": {
-            color: "#009FFF"
-          },
-          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input": {
-            color: "#009FFF"
-          },
-          "& .MuiInputLabel-outlined": {
-            color: "#009FFF"
-          },
-          "&:hover .MuiInputLabel-outlined": {
-            color: "#009FFF"
-          },
-          "& .MuiInputLabel-outlined.Mui-focused": {
-            color: "purple"
-          },
-    
-    },
-    formGrid:{
-        margin:'auto 10px'
-    },
-    buyText:{
-      display:'flex',
-      padding:'10px',
-      textAlign:'center',
-      marginTop:'16px',
-      lineHeight:'5px'
-    },
-    buyText1:{
-      textAlign:'left',
-      width:'100%',
-      paddingLeft:'10px'
-    },
-    buyText2:{
-      textAlign:'center',  
-      width:'100%'
-      
-    },
-    buyBtn:{
-      backgroundColor:'#009FFF',
-      width:'150px',
-      height:'39px',
-      color:'#FFFFFF',
-      fontFamily:'BYekan',
-      marginLeft:'20px',
-      border:'0.5px solid #009FFF',
-      boxShadow:'0px 20px 20px #C2BDBD73',
-      
-      '&:focus':{
-        backgroundColor:'#009FFF',
-        boxShadow:'0px 20px 20px #C2BDBD73',
-      }
-    },
-    Qustion:{
-      marginTop:'36px',
-      marginLeft:'24px',
-      marginBottom:'20px'
-      
-    },
-    QustionText:{
-      opacity:'20%',
-      marginRight:'30px'
-      
-    },
-    buyGrid:{
-      borderBottom:'10px solid #C2BDBD73',
-     
-    }
-    
-    
-}))
 
 function Item(props)
 {
@@ -371,8 +201,8 @@ function DetailPage() {
             <Grid className={classes.buyGrid}>
 
                 <Grid item  className={classes.buyText}>
-                  <Grid className={classes.buyText1}> <span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">20.350.000</span> <span className="toman-blue">نومان</span> </p></Grid>
-                  <Grid className={classes.buyText2}><span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">22.228.000</span> <span className="toman-blue">نومان</span> </p></Grid>
+                  <Grid className={classes.buyText1}> <span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">20.350.000</span> <span className="toman-blue">تومان</span> </p></Grid>
+                  <Grid className={classes.buyText2}><span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">22.228.000</span> <span className="toman-blue">تومان</span> </p></Grid>
                 </Grid>
 
                 <Grid item>
@@ -387,6 +217,59 @@ function DetailPage() {
                        <span className="opactity-30 mr-5">   خیر </span>
                 </Grid>
                 
+            </Grid>
+                    
+            {/* another shopping */}
+            <Grid className={classes.anotherShopping}>
+                  <small className="opacity-5 font-yekan"> سایر فروشندگان : </small>
+                  <p className="opacity font-yekan">فروشندان دیگر برای این کالا <span>2</span> </p>
+                  {
+                    [1,2,3].map((item , i)=><DetailItem key={i}/>)
+                  }
+                 
+            </Grid>
+            
+            {/* Comments component */}
+            <Grid className={classes.comments}>
+                <Grid className={classes.commentsHead}>
+                    <p>نظرات  <span style={{borderRight:'2px solid black' , paddingRight:'10px' , opacity:'0.5' , fontSize:'12px'}}>نظر 28</span></p>
+                    <h4 className="lighblue font-14-px">لطفا نظر خود را بنویسید ...</h4>
+                </Grid>
+                {
+                  [1,2,3].map((item , i)=><Comments key={i}/>)
+                }
+
+                <Grid className={classes.atherCmd}>
+                  <p>
+                      مشاهده 26 نظر دیگر
+                  </p>
+                  <IconButton >
+                    <ArrowBackIosIcon className="lighblue"/>
+                  </IconButton>
+                </Grid>
+                  
+            </Grid>
+                
+            {/* Review */}
+            <Grid className={classes.review}>
+                <Grid className={classes.ReviewsHead}><p>نقد و بررسی  </p></Grid>
+                <Grid><Review/></Grid>
+            </Grid>
+
+            {/* Technical Specifications */}
+            <Grid className={classes.technical}>
+                <Grid className={classes.ReviewsHead}><p>اطلاعات فنی </p></Grid>
+                <Grid><Technical/></Grid>
+            </Grid>
+    
+            {/* Similar  */}
+            <Grid className={classes.similar}>
+              <Grid className={classes.ReviewsHead}><p>کالا های مشابه </p></Grid>
+              <Grid>{
+                [1,2,3].map((item , i)=><Similar key={i} img={data.select}/>)
+                }
+              </Grid>
+              <Grid className={classes.moreGrid}><Button variant="outlined" className={classes.moreBtn} color="primary">بیشتر ...</Button></Grid>
             </Grid>
     </Grid>
     )
