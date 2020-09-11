@@ -39,7 +39,6 @@ function Item(props)
 function DetailPage() {
     const classes = useStyles();
     const data = useContext(context);
-    console.log(data);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [color, setColor] = React.useState('');
     const [count, setCount] = React.useState('');
@@ -60,7 +59,7 @@ function DetailPage() {
       //-------------------
 
     return (
-        <Grid style={{marginBottom:'100px'}}>
+        <Grid >
             {/* top navigation */}
             <Grid  className={classes.topnav}>
                 <Grid item  md={5} sm={5} xs={5}>
@@ -212,7 +211,7 @@ function DetailPage() {
                 </Grid>
 
                 <Grid item className={classes.Qustion}>
-                      <span className={classes.QustionText}>قیمت منصفانه است؟</span>
+                      <p className={classes.QustionText}>قیمت منصفانه است؟</p>
                       <span className="opactity-30 "> بله </span>
                        <span className="opactity-30 mr-5">   خیر </span>
                 </Grid>

@@ -18,7 +18,7 @@ function Comments() {
        <Grid className={classes.commentItem}>
            <p className="font-12-px bold">مهدی آقایی</p>
            <p className="font-10-px opacity-5">اردیبهشت 1398 28</p>
-           <small className="font-10-px opacity-8">این یخچال واقعا میشه گفت کیفیت و ظاهر خوبی داره و میشه چندین سال ازش استفاده کرد بدون این که خرابی چیزی براش پیش بیاد توصیه میکنم خریداری کنید</small>
+           <p className="font-10-px opacity-8">این یخچال واقعا میشه گفت کیفیت و ظاهر خوبی داره و میشه چندین سال ازش استفاده کرد بدون این که خرابی چیزی براش پیش بیاد توصیه میکنم خریداری کنید</p>
             <p className="font-10-px opacity-5">امتیاز ثبت کرده اند  <span>
                 <IconButton>
                     <Rating name="size-small" defaultValue={6} max={6} size="small" readOnly />

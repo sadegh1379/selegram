@@ -9,14 +9,15 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import BookmarkSharpIcon from '@material-ui/icons/BookmarkSharp';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import { IconButton } from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import BottomAppBar from '../../static/BottomAppBar';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import Forcolor from '../img/forcolor.png';
 import {Link} from 'react-router-dom';
+import FlexButtonV from '../../static/FlexButtonV';
 
 
 
@@ -26,6 +27,9 @@ function LoginFour() {
     const [opinion , setOpinion] = React.useState('لطفا نظر خود را بنویسید ...');
 
     const data = useContext(context);
+    const {detail , handleDetail} = data;
+    console.log(data)
+    
     
 
     // fordropdown---------
@@ -51,15 +55,15 @@ function LoginFour() {
                                 <StarIcon/>
                                     فروش ویژه
                             </span>
-                            {data.kala.map((item , i)=>{
+                            {data.data ? data.data.map((item , i)=>{
                                 return(
                                     <li style={{margin:'0px 8px' }} key={i}>
-                                        <img style={{width:'64px' , height:'83px'}}  src={item.img} alt=""/>
+                                        <img onClick={()=>handleDetail(item.id)} style={{width:'64px' , height:'83px'}}  src={item.shopping_img} alt={item.shopping_name}/>
                                         
                                         
                                     </li>
                                 )
-                            })
+                            }) : null
                             }
                         </ul>
                     </Grid><hr style={{margin:'-8px auto' }}/>
@@ -67,19 +71,15 @@ function LoginFour() {
                     {/* information component */}
         
                     <Grid className={classes.informationGrid}>
-                        <Grid  >
-                            <Grid item md={10} sm={10} xs={10}>
-                              <img alt="img" style={{width:'40px'}} src={data.kala[2].img}/>
-                            </Grid>
-                            <Grid item md={2} sm={2} xs={2}>
-                               <img style={{position:'absolute', marginTop:'20px' , marginLeft:'-50px'}} src={Forcolor} alt="colors"/>
-                            </Grid>
+                        <Grid>
+                              <img alt="img" style={{width:'40px'}} src={detail.shopping_img}/>
+                                <FlexButtonV/>
                         </Grid>
                         <Grid item  className={classes.informationText}>
                             <span className="font-yekan font-12-px" style={{borderRight:'1px solid black' , paddingRight:'10px' }}>لوازم خانگی  ایگلس</span>
-                            <span className="font-yekan  font-10-px" style={{marginRight:'15px' , opacity:'0.5'}}>تهران , شهریار</span><br/>
-                            <span className="font-yekan font-10-px" style={{opacity:'0.5'}}>برند  :  <span className="lighblue">سامسونگ</span></span>
-                            <span className="font-yekan font-10-px" style={{opacity:'0.5', marginRight:'40px'}}>دسته بندی  : <span className="lighblue">یخچال و فریزر</span></span>
+                        <span className="font-yekan  font-10-px" style={{marginRight:'35px' , opacity:'0.5'}}>{detail.state} , {detail.city}</span><br/>
+                            <span className="font-yekan font-10-px" style={{opacity:'0.5'}}>برند  :  <span className="lighblue">{detail.brand}</span></span>
+                            <span className="font-yekan font-10-px" style={{opacity:'0.5', marginRight:'40px'}}>دسته بندی  : <span className="lighblue">{detail.grouping}</span></span>
                         </Grid>
                         <Grid item>
                             <div>
@@ -103,7 +103,7 @@ function LoginFour() {
                     {/* body */}
                     <Grid className={classes.body}>
                         <Grid className={classes.bodyImg} item md={6} sm={6} xs={6}>
-                            <img style={{width:'100%'  ,}} src={data.select} alt="img"/>
+                            <img style={{width:'100%'  ,}} src={detail.img} alt="img"/>
                         </Grid>
                         <Grid item md={6} sm={6} xs={6}>
                             <div  className="text-left">
@@ -111,14 +111,15 @@ function LoginFour() {
                                     <ShareOutlinedIcon/>
                                 </IconButton>
                                 <IconButton>
-                                    <BookmarkBorderIcon/>
+                                    {detail.seved ? <BookmarkSharpIcon/> : <BookmarkBorderIcon/>}
+                                    
                                 </IconButton>
                                 
                             </div>
                             <div  style={{lineHeight:'10px'}}>
-                                    <span className="font-10-px opacity font-yekan">گارانتی:</span><p className="font-12-px opacity">36ماهه سام سرویس</p>
-                                    <span className="font-10-px opacity font-yekan">قیمت برای همکار:</span><p ><span className="money-color">20.350.000</span> <span className="toman-blue">نومان</span> </p>
-                                    <span className="font-10-px opacity font-yekan">قیمت برای همکار:</span><p ><span className="money-color">22.228.000</span> <span className="toman-blue">نومان</span> </p>
+                                    <span className="font-10-px opacity font-yekan">گارانتی:</span><p className="font-12-px opacity">{detail.granti}</p>
+                                    <span className="font-10-px opacity font-yekan">قیمت برای همکار:</span><p ><span className="money-color">{detail.main_price}</span> <span className="toman-blue">نومان</span> </p>
+                                    <span className="font-10-px opacity font-yekan">قیمت برای همکار:</span><p ><span className="money-color">{detail.main_price}</span> <span className="toman-blue">نومان</span> </p>
 
                             </div>
                             
@@ -126,7 +127,7 @@ function LoginFour() {
                     </Grid>
                     
                     <Grid className={classes.getArrow}>
-                        <span className="font-12-px font-yekan"> یخچال و فریزر دوقلوی سامسونگ مدل RR30PN-RZ30PN </span>
+                        <span className="font-12-px font-yekan">{detail.name}</span>
                         <Link to="/detailpage">
                             <IconButton >
                                     <ArrowBackIosIcon className={classes.color_black}/>
@@ -136,12 +137,12 @@ function LoginFour() {
                     {/* liked */}
                     <Grid className={classes.liked}>
                                 <IconButton> <FavoriteBorderOutlinedIcon/></IconButton>
-                                <span>23 بار پسنده شده</span>
+                                <span>{detail.liked} بار پسنده شده</span>
                                 <span style={{borderLeft:'1px solid black' , margin:'0 5px'}}></span>
-                                <span className="lighblue lightblue">نظر 28</span>
+                                <span className="lighblue lightblue">نظر <span>{detail.number_C}</span></span>
                                 <span style={{borderLeft:'1px solid black' , margin:'0 5px'}}></span>
                                 <IconButton><StarBorderIcon className={classes.goldstar}/></IconButton>
-                                <span>4.5 (12)</span>
+                                <span>{detail.fav}</span>
                                 
                     </Grid>
                     {/* Opinion */}
