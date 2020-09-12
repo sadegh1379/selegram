@@ -23,7 +23,7 @@ function Similar({img}) {
                     <img style={{width:'100%'}} src={img} alt="img"/>
              </Grid>
              <Grid  item md={9} sm={9} xs={9}>
-                <p className="font-10-px opacity-8"> یخچال و فریزر دوقلوی سامسونگ مدل  RR30PN-RZ30PN </p>
+                <p className="font-10-px"> یخچال و فریزر دوقلوی سامسونگ مدل  RR30PN-RZ30PN </p>
                     <Grid className="d-flex width-100">
                         <Grid item md={6} sm={6} xs={6}><p className="font-10-px opacity-5">رنگبندی های موجود:  </p></Grid>
                         <FlexButton/>

@@ -34,14 +34,14 @@ const useStyles = makeStyles({
     }
 })
 
-function FlexButtonV() {
+function FlexButtonV({changeColor , id}) {
     const classes = useStyles()
     return (
         <Grid className={classes.root}>
-            <Grid className={clsx(classes.icons , classes.grey)}></Grid>
-            <Grid className={clsx(classes.icons , classes.white)}></Grid>
-            <Grid className={clsx(classes.icons , classes.blue)}></Grid>
-            <Grid className={clsx(classes.icons , classes.red)}></Grid>
+            <Grid onClick={(e)=>changeColor(id , 'grey')} className={clsx(classes.icons , classes.grey)}></Grid>
+            <Grid onClick={(e)=>changeColor(id , 'white')} className={clsx(classes.icons , classes.white)}></Grid>
+            <Grid onClick={(e)=>changeColor(id , 'blue')} className={clsx(classes.icons , classes.blue)}></Grid>
+            <Grid onClick={(e)=>changeColor(id , 'red')} className={clsx(classes.icons , classes.red)}></Grid>
         </Grid>
     )
 }

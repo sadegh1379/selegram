@@ -18,17 +18,23 @@ import BottomAppBar from '../../static/BottomAppBar';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import {Link} from 'react-router-dom';
 import FlexButtonV from '../../static/FlexButtonV';
+import AddCama from '../../static/AddCama';
 
 
 
 function LoginFour() {
     const classes = useStyles();
+    
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [opinion , setOpinion] = React.useState('لطفا نظر خود را بنویسید ...');
 
     const data = useContext(context);
-    const {detail , handleDetail} = data;
-    console.log(data)
+    const {detail , handleDetail , changeColor} = data;
+    
+
+    
+
+    
     
     
 
@@ -43,6 +49,8 @@ function LoginFour() {
       };
 
       //-------------------
+
+    
 
     return (
         <React.Fragment>
@@ -73,7 +81,7 @@ function LoginFour() {
                     <Grid className={classes.informationGrid}>
                         <Grid>
                               <img alt="img" style={{width:'40px'}} src={detail.shopping_img}/>
-                                <FlexButtonV/>
+                                <FlexButtonV id={detail.id} changeColor={changeColor}/>
                         </Grid>
                         <Grid item  className={classes.informationText}>
                             <span className="font-yekan font-12-px" style={{borderRight:'1px solid black' , paddingRight:'10px' }}>لوازم خانگی  ایگلس</span>
@@ -103,7 +111,7 @@ function LoginFour() {
                     {/* body */}
                     <Grid className={classes.body}>
                         <Grid className={classes.bodyImg} item md={6} sm={6} xs={6}>
-                            <img style={{width:'100%'  ,}} src={detail.img} alt="img"/>
+                            <img className={classes.bodyImg1} style={{width:'100%'  ,}} src={detail.img} alt="img"/>
                         </Grid>
                         <Grid item md={6} sm={6} xs={6}>
                             <div  className="text-left">
@@ -118,8 +126,8 @@ function LoginFour() {
                             </div>
                             <div  style={{lineHeight:'10px'}}>
                                     <span className="font-10-px opacity font-yekan">گارانتی:</span><p className="font-12-px opacity">{detail.granti}</p>
-                                    <span className="font-10-px opacity font-yekan">قیمت برای همکار:</span><p ><span className="money-color">{detail.main_price}</span> <span className="toman-blue">نومان</span> </p>
-                                    <span className="font-10-px opacity font-yekan">قیمت برای همکار:</span><p ><span className="money-color">{detail.main_price}</span> <span className="toman-blue">نومان</span> </p>
+                                    <span className="font-10-px opacity font-yekan">قیمت برای همکار:</span><p ><span className="money-color">{AddCama(detail.main_price)}</span> <span className="toman-blue">نومان</span> </p>
+                                    <span className="font-10-px opacity font-yekan">قیمت برای همکار:</span><p ><span className="money-color">{AddCama(detail.main_price)}</span> <span className="toman-blue">نومان</span> </p>
 
                             </div>
                             

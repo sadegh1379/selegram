@@ -26,15 +26,17 @@ const useStyles = makeStyles({
     }
 })
 
-function Review() {
+function Review({text}) {
     const classes = useStyles();
     return (
         <Grid className={classes.root}>
             <Grid className={classes.body}>
                 <small className="opacity-8" style={{fontWeight:'small' , color:'#707070'}}>
-                    <p>قفل کودک : <span>بله</span></p>
-                    <p>اختار باز ماندن درب  : <span>خیر</span></p>
-                    <p>آی سرد کن : <span>بله</span></p>
+                    {text.map((item , i)=>{
+                        return (<p key={i}>{item}</p>)
+                    })}
+                    
+                    
                 </small>
             </Grid>
             

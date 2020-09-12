@@ -12,16 +12,19 @@ const useStyles = makeStyles({
 
 
 
-function Comments() {
+function Comments({item}) {
+    const {name , date , text , level} = item;
+    
+    
     const classes = useStyles()
     return (
        <Grid className={classes.commentItem}>
-           <p className="font-12-px bold">مهدی آقایی</p>
-           <p className="font-10-px opacity-5">اردیبهشت 1398 28</p>
-           <p className="font-10-px opacity-8">این یخچال واقعا میشه گفت کیفیت و ظاهر خوبی داره و میشه چندین سال ازش استفاده کرد بدون این که خرابی چیزی براش پیش بیاد توصیه میکنم خریداری کنید</p>
+           <p className="font-12-px bold">{name}</p>
+           <p className="font-10-px opacity-5">{date}</p>
+           <p className="font-10-px ">{text}</p>
             <p className="font-10-px opacity-5">امتیاز ثبت کرده اند  <span>
                 <IconButton>
-                    <Rating name="size-small" defaultValue={6} max={6} size="small" readOnly />
+                    <Rating name="size-small" defaultValue={level} max={6} size="small" readOnly />
                 </IconButton>
             </span></p>
             <hr className="opacity-5"/>

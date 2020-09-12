@@ -47,8 +47,12 @@ const useStyles = makeStyles((theme) => ({
         width:'100%',
         overflow:'hidden',
         padding:'10px',
-        textAlign:'center'
+        textAlign:'center',
+   
+        
     },
+    
+   
     getArrow:{
         padding:'10px'
     },

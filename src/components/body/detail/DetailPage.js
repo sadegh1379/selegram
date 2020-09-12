@@ -12,6 +12,7 @@ import FlagOutlinedIcon from '@material-ui/icons/FlagOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
+import BookmarkSharpIcon from '@material-ui/icons/BookmarkSharp';
 import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined';
 import {useContext} from 'react';
 import {context} from '../../../context';
@@ -24,14 +25,15 @@ import useStyles from './DetailPageStyles';
 import Comments from './Comments';
 import Review from './Review';
 import Technical from './Technical';
-import Similar from './Similar'
+import Similar from './Similar';
+import AddCama from '../../static/AddCama';
 
 
 function Item(props)
 {
     return (
         <Grid >
-            <img style={{width:'100%'}} src={props.item.img} alt="img"/>
+            <img style={{width:'100%'}} src={props.item} alt="img"/>
         </Grid>
     )
 }
@@ -39,10 +41,16 @@ function Item(props)
 function DetailPage() {
     const classes = useStyles();
     const data = useContext(context);
+    const {detail , changeColor } = data;
+    // console.log(data);
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [color, setColor] = React.useState('');
-    const [count, setCount] = React.useState('');
+    const [color, setColor] = React.useState(detail.main_color);
+    const [count, setCount] = React.useState('1');
 
+
+    React.useEffect(()=>{
+        changeColor(detail.id , color);
+    }, [color , count])
   
 
 
@@ -71,7 +79,7 @@ function DetailPage() {
                 </Grid>
                 <Grid className={classes.navText}  item md={7} sm={7} xs={7}>
                         <p className="font-yekan" style={{ fontSize:'16px' , fontWeight:'bolder'}}>لوازم خانگی ایگِلس</p>
-                        <small style={{color:'#616161'}} className="font-yekan" >تهران , شهریار</small>
+                        <p style={{color:'#616161'}} className="font-yekan" >{detail.state + " , " + detail.city}</p>
                 </Grid>
             </Grid>
 
@@ -81,9 +89,9 @@ function DetailPage() {
                             <hr/>
                                 
                                 <Grid item  className={classes.informationText}>
-                                    <span style={{fontSize:'12px'}}>  <span className="font-yekan">یخچال و فریزر دوقلوی سامسونگ مدل</span>  RR30PN-RZ30PN</span><br/>
-                                    <span className="font-yekan font-10-px" style={{opacity:'0.5' , color:'#616161'}}>برند  :  <span className="lighblue">سامسونگ</span></span>
-                                    <span className="font-yekan font-10-px" style={{opacity:'0.5', marginRight:'40px' , color:'#616161'}}>دسته بندی  : <span className="lighblue">یخچال و فریزر</span></span>
+                                    <span style={{fontSize:'12px'}}>  <span className="font-yekan">{detail.name}</span></span><br/>
+                                    <span className="font-yekan font-10-px" style={{opacity:'0.5' , color:'#616161'}}>برند  :  <span className="lighblue">{detail.brand}</span></span>
+                                    <span className="font-yekan font-10-px" style={{opacity:'0.5', marginRight:'40px' , color:'#616161'}}>دسته بندی  : <span className="lighblue">{detail.grouping}</span></span>
                                 </Grid>
                                 <Grid item>
                                     <div>
@@ -125,25 +133,25 @@ function DetailPage() {
                         </div>
                         <div>
                             <IconButton>
-                                <BookmarkBorderOutlinedIcon/>
+                                {detail.seved ? <BookmarkSharpIcon/> :  <BookmarkBorderOutlinedIcon/>}
                             </IconButton>
                         </div>
                 </Grid>
                 <Grid>
-                <Carousel autoPlay={false}>
+                <Carousel autoPlay={false} >
                     {
-                        data.kala[0].images.map( (item, i) => <Item key={i} item={item} /> )
+                        detail.images.map( (item, i) => <Item key={i} item={item} /> )
                     }
                 </Carousel>
                 </Grid>
                 <Grid className={classes.liked}>
-                                <IconButton> <FavoriteBorderOutlinedIcon/></IconButton>
-                                <span>23 بار پسنده شده</span>
+                <IconButton> <FavoriteBorderOutlinedIcon/></IconButton>
+                                <span>{detail.liked} بار پسنده شده</span>
                                 <span style={{borderLeft:'1px solid black' , margin:'0 5px'}}></span>
-                                <span className="lighblue lightblue">نظر 28</span>
+                                <span className="lighblue lightblue">نظر <span>{detail.number_C}</span></span>
                                 <span style={{borderLeft:'1px solid black' , margin:'0 5px'}}></span>
                                 <IconButton><StarBorderIcon className={classes.goldstar}/></IconButton>
-                                <span>4.5 (12)</span>
+                                <span>{detail.fav}</span>
                                 
                     </Grid>
                     <span style={{paddingRight:'10px'}} className="font-10-px opacity font-yekan ">گارانتی:</span><p style={{paddingRight:'10px'}} className="font-12-px opacity">36ماهه سام سرویس</p>
@@ -200,8 +208,8 @@ function DetailPage() {
             <Grid className={classes.buyGrid}>
 
                 <Grid item  className={classes.buyText}>
-                  <Grid className={classes.buyText1}> <span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">20.350.000</span> <span className="toman-blue">تومان</span> </p></Grid>
-                  <Grid className={classes.buyText2}><span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">22.228.000</span> <span className="toman-blue">تومان</span> </p></Grid>
+                  <Grid className={classes.buyText1}> <span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">{AddCama(detail.main_price * count)}</span> <span className="toman-blue">تومان</span> </p></Grid>
+                  <Grid className={classes.buyText2}><span className="font-10-px opacity font-yekan ">قیمت برای همکار:</span><p ><span className="money-color">{AddCama(detail.main_price * count)}</span> <span className="toman-blue">تومان</span> </p></Grid>
                 </Grid>
 
                 <Grid item>
@@ -235,7 +243,7 @@ function DetailPage() {
                     <h4 className="lighblue font-14-px">لطفا نظر خود را بنویسید ...</h4>
                 </Grid>
                 {
-                  [1,2,3].map((item , i)=><Comments key={i}/>)
+                  detail.comments.map((item , i)=><Comments key={i} item={item} />)
                 }
 
                 <Grid className={classes.atherCmd}>
@@ -252,13 +260,13 @@ function DetailPage() {
             {/* Review */}
             <Grid className={classes.review}>
                 <Grid className={classes.ReviewsHead}><p>نقد و بررسی  </p></Grid>
-                <Grid><Review/></Grid>
+                <Grid><Review text={detail.technical}/></Grid>
             </Grid>
 
             {/* Technical Specifications */}
             <Grid className={classes.technical}>
                 <Grid className={classes.ReviewsHead}><p>اطلاعات فنی </p></Grid>
-                <Grid><Technical/></Grid>
+                <Grid><Technical text={detail.review}/></Grid>
             </Grid>
     
             {/* Similar  */}

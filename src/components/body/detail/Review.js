@@ -23,12 +23,12 @@ const useStyles = makeStyles({
     }
 })
 
-function Review() {
+function Review({text}) {
     const classes = useStyles();
     return (
         <Grid className={classes.root}>
             <Grid>
-                <p className="opacity-8" style={{fontWeight:'small' , color:'#707070'}}>یخجال و فریزر «امرسان» مدل «FN15D-RH15D» محصولی کارآمد و باکیفیت از این تولیدکننده‌ی داخلی است که در دسته‌ی یخچال و فریزرهای دوقلو قرار می‌گیرد. این دستگاه در واقع از دو فضای بزرگ، مجهز و جداگانه برای دو بخش یخچال و فریزر بهره‌مند است و به این ترتیب فضای زیادی را برای سرمایش و انجماد مواد غذایی در اختیار شما قرار می‌دهد. </p>
+                <p  style={{fontWeight:'small' , color:'#707070'}}>{text}</p>
             </Grid>
             
              <Grid className={classes.atherCmd}>
