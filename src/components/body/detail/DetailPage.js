@@ -18,7 +18,7 @@ import {useContext} from 'react';
 import {context} from '../../../context';
 import Carousel from 'react-material-ui-carousel';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import FavoriteTwoToneIcon from '@material-ui/icons/FavoriteTwoTone';
 import TextField from '@material-ui/core/TextField';
 import DetailItem from './DetailItem';
 import useStyles from './DetailPageStyles';
@@ -27,12 +27,14 @@ import Review from './Review';
 import Technical from './Technical';
 import Similar from './Similar';
 import AddCama from '../../static/AddCama';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+
 
 
 function Item(props)
 {
     return (
-        <Grid >
+        <Grid style={{minHeight:'331px'}}>
             <img style={{width:'100%'}} src={props.item} alt="img"/>
         </Grid>
     )
@@ -41,11 +43,12 @@ function Item(props)
 function DetailPage() {
     const classes = useStyles();
     const data = useContext(context);
-    const {detail , changeColor } = data;
-    // console.log(data);
+    const {detail , changeColor , addLike , addBookMark } = data;
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [color, setColor] = React.useState(detail.main_color);
     const [count, setCount] = React.useState('1');
+    const [like , setLike] = React.useState(false);
 
 
     React.useEffect(()=>{
@@ -132,20 +135,20 @@ function DetailPage() {
                         
                         </div>
                         <div>
-                            <IconButton>
-                                {detail.seved ? <BookmarkSharpIcon/> :  <BookmarkBorderOutlinedIcon/>}
-                            </IconButton>
+                            {detail.saved?
+                                (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkSharpIcon color="primary"/></IconButton>) : (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkBorderIcon /></IconButton>)}
+                            
                         </div>
                 </Grid>
                 <Grid>
-                <Carousel autoPlay={false} >
+                <Carousel  autoPlay={false} >
                     {
                         detail.images.map( (item, i) => <Item key={i} item={item} /> )
                     }
                 </Carousel>
                 </Grid>
                 <Grid className={classes.liked}>
-                <IconButton> <FavoriteBorderOutlinedIcon/></IconButton>
+                <IconButton onClick={()=>{addLike(detail.id); setLike(!like) }}> <FavoriteTwoToneIcon  color={like? 'secondary' : 'inherit'}/></IconButton>
                                 <span>{detail.liked} بار پسنده شده</span>
                                 <span style={{borderLeft:'1px solid black' , margin:'0 5px'}}></span>
                                 <span className="lighblue lightblue">نظر <span>{detail.number_C}</span></span>
@@ -173,10 +176,10 @@ function DetailPage() {
                     onChange={(e)=>setColor(e.target.value)}
                     >
                 
-                        <MenuItem value="white">سفید</MenuItem>
-                        <MenuItem value="blue">آبی</MenuItem>
-                        <MenuItem value="grey">توسی</MenuItem>
-                        <MenuItem value="red">قرمز</MenuItem>
+                        <MenuItem value="white" className="font-yekan ">سفید</MenuItem>
+                        <MenuItem value="blue" className="font-yekan">آبی</MenuItem>
+                        <MenuItem value="grey" className="font-yekan">نقره ای متالیک</MenuItem>
+                        <MenuItem value="red" className="font-yekan">قرمز</MenuItem>
                 
                     </TextField>
                     </Grid>

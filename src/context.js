@@ -72,7 +72,6 @@ const context = createContext();
     }
 
      // set total************************************
-
      setTotal = ()=>{
         let subTotal = 0 ;
         this.state.cart.map((item)=>{
@@ -118,14 +117,12 @@ const context = createContext();
      }
 
      // find product********************************************
-
      findProduct = (id)=>{
         const product =  this.state.data.find(item => item.id === id);
         return product;
      }
 
-    // handle datail************************************
-
+    // handle datail********************************************
     handleDetail = (id)=>{
         
         let tempProduct = [...this.state.data];
@@ -141,8 +138,7 @@ const context = createContext();
 
     }
 
-    // change Phone Color Price 
-
+    // change Phone Color Price *********************************
     changeColor = (id , color) =>{
         let tempProduct = [...this.state.data];
         const index = tempProduct.indexOf(this.findProduct(id));
@@ -185,11 +181,44 @@ const context = createContext();
                 break;
         }
 
-        // console.log(product);
-
         this.setState(()=>{
             return{
                 data : tempProduct
+            }
+        })
+    }
+
+    // add like
+    addLike = (id)=>{
+        let tempProduct = [...this.state.data];
+        const index = tempProduct.indexOf(this.findProduct(id));
+        const product = tempProduct[index];
+        const productD = this.state.detail;
+
+        product.liked = product.liked + 1 ;
+       
+
+        this.setState(()=>{
+            return{
+                data : tempProduct ,
+                detail : product
+            }
+        })
+    }
+
+     // seve (add book mark)
+     addBookMark = (id)=>{
+        let tempProduct = [...this.state.data];
+        const index = tempProduct.indexOf(this.findProduct(id));
+        const product = tempProduct[index];
+        const productD = this.state.detail;
+
+        product.saved = !product.saved ;
+        
+        this.setState(()=>{
+            return{
+                data : tempProduct ,
+                detail : product
             }
         })
     }
@@ -201,6 +230,8 @@ const context = createContext();
                     handleDetail : this.handleDetail,
                     changeColor:this.changeColor,
                     addToCart : this.addToCart,
+                    addLike : this.addLike,
+                    addBookMark : this.addBookMark,
             }}>
                 {this.props.children}
             </context.Provider>

@@ -114,4 +114,7 @@ button{
 .width-100{
   width: 100%;
 }
+.space-around{
+  justify-content: space-around;
+}
 

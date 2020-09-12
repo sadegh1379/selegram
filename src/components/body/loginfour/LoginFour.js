@@ -13,7 +13,7 @@ import BookmarkSharpIcon from '@material-ui/icons/BookmarkSharp';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import { IconButton } from '@material-ui/core';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import FavoriteTwoToneIcon from '@material-ui/icons/FavoriteTwoTone';
 import BottomAppBar from '../../static/BottomAppBar';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import {Link} from 'react-router-dom';
@@ -28,14 +28,10 @@ function LoginFour() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [opinion , setOpinion] = React.useState('لطفا نظر خود را بنویسید ...');
 
+    const [like , setLike] = React.useState(false);
+
     const data = useContext(context);
-    const {detail , handleDetail , changeColor} = data;
-    
-
-    
-
-    
-    
+    const {detail , handleDetail , changeColor , addLike , addBookMark} = data;
     
 
     // fordropdown---------
@@ -118,10 +114,8 @@ function LoginFour() {
                                 <IconButton>
                                     <ShareOutlinedIcon/>
                                 </IconButton>
-                                <IconButton>
-                                    {detail.seved ? <BookmarkSharpIcon/> : <BookmarkBorderIcon/>}
-                                    
-                                </IconButton>
+                                {detail.saved?
+                                (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkSharpIcon color="primary"/></IconButton>) : (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkBorderIcon /></IconButton>)}
                                 
                             </div>
                             <div  style={{lineHeight:'10px'}}>
@@ -144,7 +138,7 @@ function LoginFour() {
                     </Grid>
                     {/* liked */}
                     <Grid className={classes.liked}>
-                                <IconButton> <FavoriteBorderOutlinedIcon/></IconButton>
+                    <IconButton onClick={()=>{addLike(detail.id); setLike(!like) }}> <FavoriteTwoToneIcon  color={like? 'secondary' : 'inherit'}/></IconButton>
                                 <span>{detail.liked} بار پسنده شده</span>
                                 <span style={{borderLeft:'1px solid black' , margin:'0 5px'}}></span>
                                 <span className="lighblue lightblue">نظر <span>{detail.number_C}</span></span>

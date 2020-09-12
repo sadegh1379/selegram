@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
           "& .MuiInputLabel-outlined.Mui-focused": {
             color: "purple"
           },
-        
+      fontFamily:'BYekan',
           
     },
     selectCount:{
@@ -215,6 +215,14 @@ const useStyles = makeStyles((theme) => ({
         '&:focus':{
             border:'1px solid #009FFF',
         }
+    },
+    slider:{
+      Height:'331px'
+    },
+    colorRedGrid:{
+      with:'20px',
+      height:'20px',
+      backgroundColor:'red'
     }
     
     

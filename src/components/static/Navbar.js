@@ -22,9 +22,12 @@ function Navbar() {
               <img style={{width:'50%'}} src={logo} alt="selegram"/>
           </Grid>
           <Grid>
+              <Link to="/cart">
                 <Button>
-                <ShoppingCartOutlinedIcon/>
+                    <ShoppingCartOutlinedIcon/>
                 </Button>
+              </Link>
+              
           </Grid>
       </Grid>
     )
