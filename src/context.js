@@ -12,7 +12,7 @@ const context = createContext();
         this.state={
             data : Data,
             detail : Data[0] ,
-            cart : [],
+            cart : [Data[2] , Data[3],Data[2] , Data[3]],
             payment : 0 ,
             kala:[{
                 name:'sadegh',

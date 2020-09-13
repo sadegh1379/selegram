@@ -117,4 +117,10 @@ button{
 .space-around{
   justify-content: space-around;
 }
+.mr-2{
+  margin-right: 2px;
+}
+.ml-5{
+  margin-left: 5px;
+}
 
