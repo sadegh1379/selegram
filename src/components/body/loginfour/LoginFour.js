@@ -115,7 +115,7 @@ function LoginFour() {
                                     <ShareOutlinedIcon/>
                                 </IconButton>
                                 {detail.saved?
-                                (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkSharpIcon color="primary"/></IconButton>) : (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkBorderIcon /></IconButton>)}
+                                (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkSharpIcon className="lighblue" /></IconButton>) : (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkBorderIcon /></IconButton>)}
                                 
                             </div>
                             <div  style={{lineHeight:'10px'}}>

@@ -3,7 +3,8 @@ import React , {useContext , useState} from 'react';
 import clsx from 'clsx'
 import {context} from '../../context';
 import OrderItem from './OrderItem';
-import BottomAppBar from '../static/BottomAppBar';
+import AddCama from '../static/AddCama';
+
 
 
 const useStyles = makeStyles(()=>({
@@ -14,7 +15,7 @@ const useStyles = makeStyles(()=>({
         width:'auto',
         borderRadius:'15px',
         fontFamily:'BYekan',
-        margin:'0 10%'
+        margin:'20px 10%'
     },
     Button:{
         borderRadius:'10px',
@@ -30,7 +31,7 @@ const useStyles = makeStyles(()=>({
         fontWeight:'bold',
         color:'#8FAFB3',
         margin:'0 5px',
-        height:'30px',
+        
 
     },
     active:{
@@ -39,7 +40,7 @@ const useStyles = makeStyles(()=>({
     },
     total:{
         margin:'100px 10px',
-        border:'3px solid #009FFF',
+        border:'2px solid #009FFF',
         borderRadius:'10px',
         // padding:'10px',
 
@@ -47,7 +48,7 @@ const useStyles = makeStyles(()=>({
     totalText:{
         display:'flex',
         justifyContent:'space-around',
-        opacity:'0.6',
+        fontFamily:'BYekan',
         margin:'19px auto'
     },
     totalBtn:{
@@ -64,9 +65,7 @@ const useStyles = makeStyles(()=>({
             fontFamily:'BYekan',
         }
     },
-    // bottomappbar:{
-    //     display:'fixed'
-    // }
+
 }))
 
 function Orders() {
@@ -74,9 +73,7 @@ function Orders() {
     const [page , setPage]= useState('active');
 
     const data = useContext(context);
-    const {cart} = data;
-    console.log(cart);
-
+    const {cart , increament , decreament , removeItem , payment} = data;
     
 
     return (
@@ -85,9 +82,10 @@ function Orders() {
 
             {/* top buttons */}
             <Grid className={classes.buttonGrid}>
+              
                 
                 
-                    <Button onClick={()=>setPage('active')}  className={clsx(classes.Button )}  variant="contained" size="medium" >
+                    <Button onClick={()=>setPage('active')}  className={clsx(classes.Button , classes.active)}  variant="contained" size="medium" >
                         سفارش های فعال
                     </Button>
                     <Button onClick={()=>setPage('history')} className={classes.Button}  variant="contained" size="medium">
@@ -101,13 +99,13 @@ function Orders() {
                     <>
                         <Grid>
                             {
-                                cart.length > 0 ?  cart.map((item , i)=><OrderItem key={i} cart={item}/>) : null
+                                cart.length > 0 ?  cart.map((item , i)=><OrderItem key={i} removeItem={removeItem} increament={increament}  decreament={decreament} cart={item}/>) : null
                             }
                         </Grid>
                         <Grid className={classes.total}>
                             <Grid className={classes.totalText}>
-                                <Typography variant="subtitle1" gutterBottom>مجموع قیمت (دو کالا)</Typography>
-                                <Typography variant="overline" display="block" gutterBottom>200.200.000 تومان</Typography>
+                        <Typography variant="body2" gutterBottom>مجموع قیمت  {cart.length} کالا</Typography>
+                                <Typography className="lighblue" display="block" gutterBottom>{AddCama(payment)} تومان</Typography>
                             </Grid>
                             <Grid className="text-center">
                                 <Button className={classes.totalBtn}>ثبت نهایی این سفارش</Button>
@@ -117,14 +115,14 @@ function Orders() {
                     </>
                 )  :
                 (
-                    <h1>history</h1>
+                    <Grid className="text-center">
+                                           <Typography className="font-yekan"  variant="body2" gutterBottom>موردی موجود نیست</Typography>
+                     </Grid>
                 )  
         }
 
-           {/* bottom  app bar*/}
-           <Grid className={classes.bottomappbar}>
-                <BottomAppBar/>
-           </Grid>
+           
+           
               
         </Grid>
     )

@@ -7,14 +7,14 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Orders from './Orders';
 import Requests from './Requests';
+import BottomAppBar from '../static/BottomAppBar';
 
 const useStyles = makeStyles(()=>({
     topnav:{
-        backgroundColor:'#FCFCFC',
+        backgroundColor:'#F5F5F5',
     },
     appbar:{
         backgroundColor:'#FCFCFC',
@@ -55,7 +55,7 @@ function TabPanel(props) {
         {...other}
       >
         {value === index && (
-          <Box p={1} pt={3}>
+          <Box p={1} >
              {children}
           </Box>
         )}
@@ -97,7 +97,7 @@ function Cart() {
 
             {/* menu */}
             <Grid>
-                    <AppBar className={classes.appbar} position="static" color="default">
+                    <AppBar className={classes.appbar} position="relative" color="default">
                             <Tabs
                             className={classes.appbarTabs}
                             value={value}
@@ -105,14 +105,14 @@ function Cart() {
                             indicatorColor="primary"
                            
                             variant="fullWidth"
-                            aria-label="full width tabs example"
+                           
                             >
                             <Tab className={classes.tab} label="سفارش ها" {...a11yProps(0)} />
                             <Tab className={classes.tab} label="درخواست ها" {...a11yProps(1)} />
                             </Tabs>
                     </AppBar>
                     <SwipeableViews
-                            axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                            
                             index={value}
                             onChangeIndex={handleChangeIndex}
                             >
@@ -126,6 +126,10 @@ function Cart() {
                     </SwipeableViews>
 
             </Grid>
+
+            {/* bottom  app bar*/}
+           
+            <BottomAppBar/>
         </Grid>
     )
 }

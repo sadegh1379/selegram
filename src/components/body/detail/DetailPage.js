@@ -43,7 +43,7 @@ function Item(props)
 function DetailPage() {
     const classes = useStyles();
     const data = useContext(context);
-    const {detail , changeColor , addLike , addBookMark } = data;
+    const {detail , changeColor , addLike , addBookMark , addToCart } = data;
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [color, setColor] = React.useState(detail.main_color);
@@ -136,7 +136,7 @@ function DetailPage() {
                         </div>
                         <div>
                             {detail.saved?
-                                (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkSharpIcon color="primary"/></IconButton>) : (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkBorderIcon /></IconButton>)}
+                                (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkSharpIcon className="lighblue"/></IconButton>) : (<IconButton onClick={()=>addBookMark(detail.id)}><BookmarkBorderIcon /></IconButton>)}
                             
                         </div>
                 </Grid>
@@ -176,10 +176,10 @@ function DetailPage() {
                     onChange={(e)=>setColor(e.target.value)}
                     >
                 
-                        <MenuItem value="white" className="font-yekan ">سفید</MenuItem>
-                        <MenuItem value="blue" className="font-yekan">آبی</MenuItem>
+                        <MenuItem value="white" className="font-yekan ">سفید روشن</MenuItem>
+                        <MenuItem value="blue" className="font-yekan">آبی روشن </MenuItem>
                         <MenuItem value="grey" className="font-yekan">نقره ای متالیک</MenuItem>
-                        <MenuItem value="red" className="font-yekan">قرمز</MenuItem>
+                        <MenuItem value="red" className="font-yekan">قرمز روشن </MenuItem>
                 
                     </TextField>
                     </Grid>
@@ -216,9 +216,11 @@ function DetailPage() {
                 </Grid>
 
                 <Grid item>
-                  <Button className={classes.buyBtn} variant="contained" >
-                    سفارش
-                  </Button>
+                    {detail.inCart ? (<Button  className={classes.buyBtn} variant="contained" >به سبد افزوده شد</Button>)
+                    :
+                    ( <Button onClick={()=>addToCart(detail.id , count , color )} className={classes.buyBtn} variant="contained" >سفارش</Button>)
+                    }
+                 
                 </Grid>
 
                 <Grid item className={classes.Qustion}>

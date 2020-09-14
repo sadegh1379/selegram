@@ -1,5 +1,5 @@
 import React , {createContext ,Component}  from 'react';
-import {Data , Detail} from './data';
+import {Data } from './data';
 
 
 const context = createContext();
@@ -12,7 +12,7 @@ const context = createContext();
         this.state={
             data : Data,
             detail : Data[0] ,
-            cart : [Data[2] , Data[3],Data[2] , Data[3]],
+            cart : [],
             payment : 0 ,
             kala:[{
                 name:'sadegh',
@@ -75,7 +75,7 @@ const context = createContext();
      setTotal = ()=>{
         let subTotal = 0 ;
         this.state.cart.map((item)=>{
-            subTotal += Number(item.main_price)
+            subTotal += Number(item.payment)
         })
 
         this.setState(()=>{
@@ -87,10 +87,18 @@ const context = createContext();
     }
 
     // add to cart
-    addToCart = (item) =>{
+    addToCart = (id , count , color) =>{
+        let tempProduct = [...this.state.data];
+        const index= tempProduct.indexOf(this.findProduct(id));
+        const product = tempProduct[index];
+        product.inCart = true;
+        console.log(product);
+        const newProduct = {...product , buy_color: color , payment : product.main_price * count , count : JSON.parse(count)}
+        
         this.setState(()=>{
             return{
-                cart : [...this.state.cart , item]
+                cart : [...this.state.cart , newProduct],
+                data : tempProduct
             }
         }  , ()=>this.setTotal())
     }
@@ -116,9 +124,15 @@ const context = createContext();
           
      }
 
-     // find product********************************************
+     // find product in data********************************************
      findProduct = (id)=>{
         const product =  this.state.data.find(item => item.id === id);
+        return product;
+     }
+
+    //  findProduct in Cart
+     findProductCart = (id)=>{
+        const product =  this.state.cart.find(item => item.id === id);
         return product;
      }
 
@@ -193,7 +207,7 @@ const context = createContext();
         let tempProduct = [...this.state.data];
         const index = tempProduct.indexOf(this.findProduct(id));
         const product = tempProduct[index];
-        const productD = this.state.detail;
+        
 
         product.liked = product.liked + 1 ;
        
@@ -211,7 +225,7 @@ const context = createContext();
         let tempProduct = [...this.state.data];
         const index = tempProduct.indexOf(this.findProduct(id));
         const product = tempProduct[index];
-        const productD = this.state.detail;
+       
 
         product.saved = !product.saved ;
         
@@ -223,6 +237,66 @@ const context = createContext();
         })
     }
 
+       // decreament**********************************************
+       decreament = (id)=>{
+        let temp = [...this.state.cart];
+        const index = temp.indexOf(this.findProductCart(id));
+        const product = temp[index];
+        if(product.count === 1){
+
+           this.handleRemoveItem(id);
+            
+        }else{
+            product.count = product.count - 1 ;
+            product.payment = product.main_price * product.count ;
+
+
+            this.setState(()=>{
+               return{
+                cart : temp ,
+                
+               } 
+             } , ()=>this.setTotal())
+        }
+    
+}
+
+    // increament**********************************************
+        increament = (id)=>{
+            let temp = [...this.state.cart];
+            const index = temp.indexOf(this.findProductCart(id));
+            const product = temp[index];
+            product.count = product.count + 1
+            product.payment = product.main_price * product.count ;
+
+            this.setState(()=>{
+            return{
+                cart : temp , 
+                
+            } 
+            } , ()=>this.setTotal())
+        }
+
+    //  removeItem
+    removeItem = (id) =>{
+        let tempProduct = [...this.state.data];
+        const index= tempProduct.indexOf(this.findProduct(id));
+        const product = tempProduct[index];
+        product.inCart = false;
+
+        const cartData = [...this.state.cart];
+        const newCartData = cartData.filter((item)=>item.id !== id);
+
+        
+        this.setState(()=>{
+            return{
+                cart : newCartData,
+                data:tempProduct
+            }
+        } , ()=>this.setTotal())
+
+    }
+
     render() {
         return (
             <context.Provider value={{
@@ -232,6 +306,9 @@ const context = createContext();
                     addToCart : this.addToCart,
                     addLike : this.addLike,
                     addBookMark : this.addBookMark,
+                    decreament: this.decreament,
+                    increament : this.increament,
+                    removeItem : this.removeItem,
             }}>
                 {this.props.children}
             </context.Provider>

@@ -2,6 +2,7 @@ export const Data = [{
     state:'کرمانشاه',
     city:'هرسین',
     id : 1 ,
+    inCart:false,
     shopping_name:'',
     shopping_img:'./img/kala.png',
     name:'RR30PN-RZ30PN یخچال و فریزر دوقلوی سامسونگ مدل',
@@ -55,6 +56,7 @@ export const Data = [{
     id : 2 ,
     state:'مشهد',
     city:'مشهد',
+    inCart:false,
     shopping_name:'',
     shopping_img:'./img/kala.png',
     name:'جارو برقی دو سوز ',
@@ -66,8 +68,8 @@ export const Data = [{
         grey:'30120000',
         white:'21000000'
     },
-    img:'https://lh3.googleusercontent.com/proxy/8XUn8tTLtajx-YN2sxsZndQx4OKguWid2tQN2Lwt0sd5lzJ6G90J4xZLe_-vmJfh7xf9amYRtY0O_j4WL3kk8SmlmSx9dgD2yLdu49U8zsRnBN5lJXdgr4Mja5v2tDs0gMpaNKFAWdf81t0C9uZer7JJ6Mn_QscdG9Gs-mAWrorYbhQ',
-    images:[ 'https://lh3.googleusercontent.com/proxy/8XUn8tTLtajx-YN2sxsZndQx4OKguWid2tQN2Lwt0sd5lzJ6G90J4xZLe_-vmJfh7xf9amYRtY0O_j4WL3kk8SmlmSx9dgD2yLdu49U8zsRnBN5lJXdgr4Mja5v2tDs0gMpaNKFAWdf81t0C9uZer7JJ6Mn_QscdG9Gs-mAWrorYbhQ' ,'https://storage.torob.com/backend-api/base/images/P-/uK/P-uKZsBasCUYt3y_.jpg' ,'https://www.parskhazar.com/shop/807-large_default/%D8%AC%D8%A7%D8%B1%D9%88-%D8%A8%D8%B1%D9%82%DB%8C-%D9%85%D8%AF%D9%84-%D9%81%D9%88%D8%AA%D9%88%D9%86-fotun.jpg'],
+    img:'https://storage.torob.com/backend-api/base/images/DA/ER/DAERndyCKAaeExBZ.jpg',
+    images:[ 'https://storage.torob.com/backend-api/base/images/DA/ER/DAERndyCKAaeExBZ.jpg' ,'https://storage.torob.com/backend-api/base/images/P-/uK/P-uKZsBasCUYt3y_.jpg' ,'https://www.parskhazar.com/shop/807-large_default/%D8%AC%D8%A7%D8%B1%D9%88-%D8%A8%D8%B1%D9%82%DB%8C-%D9%85%D8%AF%D9%84-%D9%81%D9%88%D8%AA%D9%88%D9%86-fotun.jpg'],
     comments:[{
         name:'مهدی آقایی',
         date:'28 اردیبهشت 1398',
@@ -107,6 +109,7 @@ export const Data = [{
 {
     id : 3 ,
     state:'تهران',
+    inCart:false,
     city:'شهریار',
     shopping_name:'',
     shopping_img:'./img/kala.png',
@@ -161,7 +164,8 @@ export const Data = [{
 {
     state:'کرمانشاه',
     city:'هرسین',
-    id : 1 ,
+    id : 4 ,
+    inCart:false,
     shopping_name:'',
     shopping_img:'./img/kala.png',
     name:'RR30PN-RZ30PN یخچال و فریزر دوقلوی سامسونگ مدل',
@@ -212,9 +216,10 @@ export const Data = [{
 
 },
 {
-    id : 2 ,
+    id : 5 ,
     state:'مشهد',
     city:'مشهد',
+    inCart:false,
     shopping_name:'',
     shopping_img:'./img/kala.png',
     name:'جارو برقی دو سوز ',
@@ -226,8 +231,8 @@ export const Data = [{
         grey:'30120000',
         white:'21000000'
     },
-    img:'https://lh3.googleusercontent.com/proxy/8XUn8tTLtajx-YN2sxsZndQx4OKguWid2tQN2Lwt0sd5lzJ6G90J4xZLe_-vmJfh7xf9amYRtY0O_j4WL3kk8SmlmSx9dgD2yLdu49U8zsRnBN5lJXdgr4Mja5v2tDs0gMpaNKFAWdf81t0C9uZer7JJ6Mn_QscdG9Gs-mAWrorYbhQ',
-    images:[ 'https://lh3.googleusercontent.com/proxy/8XUn8tTLtajx-YN2sxsZndQx4OKguWid2tQN2Lwt0sd5lzJ6G90J4xZLe_-vmJfh7xf9amYRtY0O_j4WL3kk8SmlmSx9dgD2yLdu49U8zsRnBN5lJXdgr4Mja5v2tDs0gMpaNKFAWdf81t0C9uZer7JJ6Mn_QscdG9Gs-mAWrorYbhQ' ,'https://storage.torob.com/backend-api/base/images/P-/uK/P-uKZsBasCUYt3y_.jpg' ,'https://www.parskhazar.com/shop/807-large_default/%D8%AC%D8%A7%D8%B1%D9%88-%D8%A8%D8%B1%D9%82%DB%8C-%D9%85%D8%AF%D9%84-%D9%81%D9%88%D8%AA%D9%88%D9%86-fotun.jpg'],
+    img:'https://storage.torob.com/backend-api/base/images/DA/ER/DAERndyCKAaeExBZ.jpg',
+    images:[ 'https://storage.torob.com/backend-api/base/images/DA/ER/DAERndyCKAaeExBZ.jpg' ,'https://storage.torob.com/backend-api/base/images/P-/uK/P-uKZsBasCUYt3y_.jpg' ,'https://www.parskhazar.com/shop/807-large_default/%D8%AC%D8%A7%D8%B1%D9%88-%D8%A8%D8%B1%D9%82%DB%8C-%D9%85%D8%AF%D9%84-%D9%81%D9%88%D8%AA%D9%88%D9%86-fotun.jpg'],
     comments:[{
         name:'مهدی آقایی',
         date:'28 اردیبهشت 1398',
@@ -265,9 +270,10 @@ export const Data = [{
 
 },
 {
-    id : 3 ,
+    id : 6 ,
     state:'تهران',
     city:'شهریار',
+    inCart:false,
     shopping_name:'',
     shopping_img:'./img/kala.png',
     name:'لباس شویی مدل TYDSDW',

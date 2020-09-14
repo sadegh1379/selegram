@@ -29,11 +29,12 @@ const useStyles = makeStyles((theme) => ({
     
   },
   icons:{
-   
-    color:'#707070'
-    ,fontSize:'30px',
+    color:'#black',
+    fontSize:'25px',
+    fontWeight:'small',
+    
+    
  
-  
   }
 }));
 
