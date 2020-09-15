@@ -75,7 +75,8 @@ const context = createContext();
      setTotal = ()=>{
         let subTotal = 0 ;
         this.state.cart.map((item)=>{
-            subTotal += Number(item.payment)
+            subTotal += Number(item.payment);
+            
         })
 
         this.setState(()=>{
@@ -92,7 +93,6 @@ const context = createContext();
         const index= tempProduct.indexOf(this.findProduct(id));
         const product = tempProduct[index];
         product.inCart = true;
-        console.log(product);
         const newProduct = {...product , buy_color: color , payment : product.main_price * count , count : JSON.parse(count)}
         
         this.setState(()=>{

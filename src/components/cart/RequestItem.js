@@ -1,7 +1,4 @@
 import { Avatar, Grid, IconButton, makeStyles, Typography } from '@material-ui/core';
-import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
-import IndeterminateCheckBoxOutlinedIcon from '@material-ui/icons/IndeterminateCheckBoxOutlined';
-import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import avatar from './img/user.png';
 import ice from './img/ice.png';

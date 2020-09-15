@@ -6,13 +6,13 @@
 html , body , #root{
     margin: 0px ;
     padding:0px;
-    
+    background-color: #FFFF;
 }
 .font-yekan{
     font-family: BYekan !important;
   }
 label{
-    color:#009FFF !important;
+    color:#009FFF ;
     font-size: 14px;
     
     font-weight: small !important;
@@ -23,6 +23,13 @@ label{
 
 .color-text{
   color:#404D66
+}
+
+input[type='radio']:checked:after {
+  
+  background-color: #009FFF;
+  visibility: visible;
+  
 }
 
 .text-center{
@@ -39,7 +46,7 @@ label{
 }
 
 .lighblue{
-  color:#009FFF;
+  color:#009FFF !important;
 }
 .font-10-px{
   font-size: 10px;
@@ -123,4 +130,14 @@ button{
 .ml-5{
   margin-left: 5px;
 }
+.mb-20{
+  margin-bottom: 20px;
+}
+
+.btn-animation{
+  transition-property: all;
+  transition-duration: 5s;
+  transition-timing-function: linear;
+}
+
 

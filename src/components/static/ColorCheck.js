@@ -36,6 +36,9 @@ function ColorCheck({color}) {
         case 'blue':
             sendColor = 'آبی روشن'
         break;
+        default:
+            sendColor = color;
+        break;
    
     }
 

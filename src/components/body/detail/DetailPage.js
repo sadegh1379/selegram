@@ -11,7 +11,6 @@ import MoreHorizOutlinedIcon from '@material-ui/icons/MoreHorizOutlined';
 import FlagOutlinedIcon from '@material-ui/icons/FlagOutlined';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
-import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
 import BookmarkSharpIcon from '@material-ui/icons/BookmarkSharp';
 import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined';
 import {useContext} from 'react';
