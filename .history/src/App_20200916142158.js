@@ -9,7 +9,6 @@ import LoginFour from './components/body/loginfour/LoginFour';
 import DetailPage from './components/body/detail/DetailPage';
 import Cart from './components/cart/Cart';
 import Search from './components/search/Search';
-import Add from './components/addComponent/Add';
 
 function App() {
   return (
@@ -21,8 +20,8 @@ function App() {
         <Route exact path="/detailpage" component={(props)=><DetailPage {...props}/>} />
         <Route exact path="/" component={()=><LoginFour/>} />
         <Route exact path="/cart" component={()=><Cart/>} />
+        <Route exact path="/search" component={<Search/>} />
         <Route exact path="/search" component={()=><Search/>} />
-        <Route exact path="/add" component={()=><Add/>} />
       </Switch>
     </div>
   );

@@ -80,7 +80,7 @@ export default function BottomAppBar(props) {
              </IconButton>
            
             <IconButton  onClick={()=>setActive({home:false, img:false ,  add:true , search:false , star:false})} edge="end" color="inherit">
-                  <Link to="/add">
+                  <Link to="/">
                       {
                         active.add? <AddBoxIcon  className={clsx(classes.icons , "lighblue")}/> : <AddBoxOutlinedIcon className={classes.icons}/>
                       }

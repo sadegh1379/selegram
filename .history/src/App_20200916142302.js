@@ -9,7 +9,6 @@ import LoginFour from './components/body/loginfour/LoginFour';
 import DetailPage from './components/body/detail/DetailPage';
 import Cart from './components/cart/Cart';
 import Search from './components/search/Search';
-import Add from './components/addComponent/Add';
 
 function App() {
   return (
