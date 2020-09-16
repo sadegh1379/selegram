@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import logo from './img/logo.png';
+import clsx from 'clsx';
 
 
 
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     // marginTop:'50px',
     backgroundColor :'#ECEFF1',
     height:'40px',
+    
   
     
 
@@ -71,12 +73,11 @@ export default function Login(props) {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
+      <div className={classes.paper} >
        
           <img src={logo} alt="logo"/>
-       
-        
-        <form onSubmit={submitText} className={classes.form} noValidate>
+    
+        <form onSubmit={submitText} className={clsx(classes.form , "wow " ,  "bounceInLeft")} data-wow-duration="1s"  noValidate   >
           <TextField
             className={classes.textInput}
             margin="normal"

@@ -140,4 +140,21 @@ button{
   transition-timing-function: linear;
 }
 
+input{
+  color:black !important;
+  font-family: BYekan !important;
+}
+
+.mb-25{
+  margin-bottom: 25px;
+}
+
+.mb-100{
+  margin-bottom: 100px;
+}
+
+.mt-15{
+  margin-top: 15px;
+}
+
 

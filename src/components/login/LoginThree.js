@@ -102,9 +102,9 @@ function LoginThree(props) {
     
 
     return (
-        <>
+        <div className="wow bounceInLeft" data-wow-duration="1.5s" >
         <div className="back">
-            <Link to="/">
+            <Link to="/login">
                 <Button variant="outlined" color="primary" className={classes.backBtn}>
                     <ChevronRightIcon/>
                 </Button>
@@ -144,7 +144,7 @@ function LoginThree(props) {
          
          </div>
        
-</>
+</div>
     )
 }
 

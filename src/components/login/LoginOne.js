@@ -103,9 +103,9 @@ function LoginOne(props) {
     
 
     return (
-        <>
+        <div className="wow bounceInLeft " data-wow-duration="1.5s" >
         <div className="back">
-            <Link to="/">
+            <Link to="/login">
                 <Button variant="outlined" color="primary" className={classes.backBtn}>
                     <ChevronRightIcon/>
                 </Button>
@@ -145,12 +145,12 @@ function LoginOne(props) {
             <p style={{textAlign:'center' ,display:'flex' , justifyContent:'center' , color:'#009FFF' , opacity:'30%'}}><RotateRightIcon/>ارسال مجدد کد تایید {"time"}</p>
          
          </div>
-        <div className={classes.footer}>
+        {/* <div className={classes.footer}>
                 <hr style={{width:'100%'}}/>
                 <p>مشکلی در ورود یا ثبت نام دارید ? با ما تماس بگیرید<span style={{marginRight:'50px'}}>021 6563-44-4525</span></p>
                 
-        </div>
-</>
+        </div> */}
+</div>
     )
 }
 

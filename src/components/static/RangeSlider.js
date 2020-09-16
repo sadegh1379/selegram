@@ -21,7 +21,7 @@ const useStyles = makeStyles({
 
 export default function RangeSlider() {
   const classes = useStyles();
-  const [value, setValue] = React.useState([5000000, 20000000]);
+  const [value, setValue] = React.useState([10000000, 30000000]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

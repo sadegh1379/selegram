@@ -6,8 +6,9 @@ import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined'
 import Button from '@material-ui/core/Button';
 import logo from './img/navlogo.png';
 import {Link } from 'react-router-dom'
+import { Badge } from '@material-ui/core';
 
-function Navbar() {
+function Navbar({cart}) {
     const classes = useStyles();
     return (
       <Grid  className={classes.navContainer}>
@@ -24,7 +25,16 @@ function Navbar() {
           <Grid>
               <Link to="/cart">
                 <Button>
-                    <ShoppingCartOutlinedIcon/>
+                    <Badge
+                         badgeContent={cart.length}
+                         color="secondary"
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+>
+                       <ShoppingCartOutlinedIcon/>
+                    </Badge>
                 </Button>
               </Link>
               

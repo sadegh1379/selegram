@@ -60,16 +60,20 @@ const useStyles = makeStyles((theme) => ({
     
     selectColor:{
         "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            fontFamily:'BYekan',
             borderColor: "#009FFF"
           },
           "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+            fontFamily:'BYekan',
             borderColor: "#009FFF"
           },
           "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            fontFamily:'BYekan',
             borderColor: "#009FFF"
           },
           "& .MuiOutlinedInput-input": {
-            color: "#009FFF"
+            fontFamily:'BYekan',
+            color: "black"
           },
           "&:hover .MuiOutlinedInput-input": {
             color: "#009FFF"
@@ -84,13 +88,14 @@ const useStyles = makeStyles((theme) => ({
             color: "#009FFF"
           },
           "& .MuiInputLabel-outlined.Mui-focused": {
-            color: "purple"
+            color: "#009FFF"
           },
       fontFamily:'BYekan',
           
     },
     selectCount:{
         "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+          fontFamily:'BYekan',
             borderColor: "#009FFF"
           },
           "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
@@ -100,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
             borderColor: "#009FFF"
           },
           "& .MuiOutlinedInput-input": {
-            color: "#009FFF"
+            color: "black"
           },
           "&:hover .MuiOutlinedInput-input": {
             color: "#009FFF"

@@ -97,7 +97,7 @@ function Orders() {
             {page === 'active'? 
                 (
                     <>
-                        <Grid>
+                        <Grid className="wow bounceInUp " data-wow-duration="1" >
                             {
                                 cart.length > 0 ?  cart.map((item , i)=><OrderItem key={i} removeItem={removeItem} increament={increament}  decreament={decreament} cart={item}/>) : null
                             }

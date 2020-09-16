@@ -13,6 +13,7 @@ import StarHalfIcon from '@material-ui/icons/StarHalf';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import clsx from 'clsx';
 import {Link } from 'react-router-dom';
+import img from './img/kala.png'
 
 const useStyles = makeStyles((theme) => ({
   
@@ -96,7 +97,7 @@ export default function BottomAppBar(props) {
     
             <IconButton  onClick={()=>setActive({home:false , img:true , add:false , search:false , star:false})} edge="start" color="inherit" aria-label="open drawer">
                   <Link to="/">
-                      <img className={clsx(active.img?classes.border:null)}  style={{width:'14.6px'}} src={props.img} alt=""/>
+                      <img className={clsx(active.img?classes.border:null)}  style={{width:'14.6px'}} src={img} alt="img"/>
                   </Link>
             </IconButton>
           

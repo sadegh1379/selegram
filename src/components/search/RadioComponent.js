@@ -1,17 +1,14 @@
 import { Badge, Grid, makeStyles } from '@material-ui/core'
 import React from 'react'
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
 import KalaPage from './KalaPage';
 import ShoppingPage from './ShoppingPage';
 import ServicePage from './ServicePage';
+import clsx from 'clsx'
 
 const useStyles = makeStyles(()=>({
     root:{
         padding:'20px 20px',
+        backgroundColor:'#FAFAFA'
     },
     radioGroup : {
         display:'flex',
@@ -52,7 +49,7 @@ function RadioComponent() {
         <Grid className={classes.root}>
             
             {/* radio */}
-            <Grid className={classes.radioGroup}>
+            <Grid className={clsx(classes.radioGroup ,"wow bounceInLeft ")}  data-wow-duration="0.7s" >
                 <Grid className="d-flex flex-items-center"> 
                     <input   onChange={(e)=>setValue(e.target.value)} type="radio" id="kala" name="select" value="kala"/>
                     <label className={classes.color} htmlFor="kala">کالا</label><br/></Grid>

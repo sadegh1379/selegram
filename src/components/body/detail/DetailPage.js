@@ -69,7 +69,7 @@ function DetailPage() {
       //-------------------
 
     return (
-        <Grid >
+        <div className="wow bounceInLeft " data-wow-duration="0.5s">
             {/* top navigation */}
             <Grid  className={classes.topnav}>
                 <Grid item  md={5} sm={5} xs={5}>
@@ -282,7 +282,7 @@ function DetailPage() {
               </Grid>
               <Grid className={classes.moreGrid}><Button variant="outlined" className={classes.moreBtn} color="primary">بیشتر ...</Button></Grid>
             </Grid>
-    </Grid>
+    </div>
     )
 }
 

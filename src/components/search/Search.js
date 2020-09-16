@@ -1,5 +1,5 @@
 import React , {useState} from 'react';
-import { FilledInput, FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, makeStyles } from '@material-ui/core';
+import { FormControl, Grid, IconButton, Input, InputAdornment, InputLabel, makeStyles } from '@material-ui/core';
 import BottomAppBar from '../static/BottomAppBar';
 import SearchIcon from '@material-ui/icons/Search';
 import DragHandleIcon from '@material-ui/icons/DragHandle';
@@ -11,12 +11,12 @@ const useStyles = makeStyles(()=>({
         display:'flex',
         padding:'10px 13px',
         justifyContent:'space-between',
-        backgroundColor:'#E3F2FD',
+        backgroundColor:'#FAFAFA',
         
     },
     input:{
         width:'100%',
-        backgroundColor:'#BBDEFB',
+        backgroundColor:'#FAFAFA',
        
     },
     searchicon:{
@@ -30,9 +30,10 @@ const useStyles = makeStyles(()=>({
 
 function Search() {
     const classes = useStyles();
-    const [show , setShow] = useState(true);
+    const [show , setShow] = useState(false);
     return (
-        <Grid>
+        <>
+        <div className="wow bounceInDown " data-wow-duration="0.7s">
 
             {/* search input */}
             <Grid className={classes.searchInput}>
@@ -66,15 +67,12 @@ function Search() {
                 show?<RadioComponent/> : null
             }
 
-
-
-
-
+        </div>
+        <div>
             {/* bottom app bar */}
             {show?null : <BottomAppBar/>}
-            
-
-        </Grid>
+        </div>
+    </>
     )
 }
 
