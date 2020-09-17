@@ -26,7 +26,7 @@ const useStyles = makeStyles(()=>({
 function RadioComponent() {
     const classes = useStyles();
 
-    const [value, setValue] = React.useState();
+    const [value, setValue] = React.useState('kala');
 
     let page ;
     switch (value) {
@@ -51,7 +51,7 @@ function RadioComponent() {
             {/* radio */}
             <Grid className={clsx(classes.radioGroup ,"wow bounceInLeft ")}  data-wow-duration="0.7s" >
                 <Grid className="d-flex flex-items-center"> 
-                    <input   onChange={(e)=>setValue(e.target.value)} type="radio" id="kala" name="select" value="kala"/>
+                    <input checked={value === 'kala'? true : false}   onChange={(e)=>setValue(e.target.value)} type="radio" id="kala" name="select" value="kala"/>
                     <label className={classes.color} htmlFor="kala">کالا</label><br/></Grid>
                 <Grid className="d-flex flex-items-center">
                     <input onChange={(e)=>setValue(e.target.value)} type="radio" id="shopping" name="select" value="shopping"/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -27,6 +27,7 @@ import Technical from './Technical';
 import Similar from './Similar';
 import AddCama from '../../static/AddCama';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import ReportModal from './ReportModal';
 
 
 
@@ -44,10 +45,11 @@ function DetailPage() {
     const data = useContext(context);
     const {detail , changeColor , addLike , addBookMark , addToCart } = data;
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [color, setColor] = React.useState(detail.main_color);
-    const [count, setCount] = React.useState('1');
-    const [like , setLike] = React.useState(false);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [color, setColor] = useState(detail.main_color);
+    const [count, setCount] = useState('1');
+    const [like , setLike] = useState(false);
+    const [report , setReport] = useState(false);
 
 
     React.useEffect(()=>{
@@ -128,7 +130,7 @@ function DetailPage() {
                             <IconButton>
                                 <ShareOutlinedIcon/>
                             </IconButton>
-                            <IconButton>
+                            <IconButton onClick={()=>setReport(true)}>
                                 <FlagOutlinedIcon/>
                             </IconButton>
                         
@@ -282,6 +284,10 @@ function DetailPage() {
               </Grid>
               <Grid className={classes.moreGrid}><Button variant="outlined" className={classes.moreBtn} color="primary">بیشتر ...</Button></Grid>
             </Grid>
+
+            {/* report modal */}
+            <ReportModal report={report}  setReport={setReport}/>
+    
     </div>
     )
 }

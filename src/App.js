@@ -10,6 +10,7 @@ import DetailPage from './components/body/detail/DetailPage';
 import Cart from './components/cart/Cart';
 import Search from './components/search/Search';
 import Add from './components/addComponent/Add';
+import MainPage from './components/instapages/MainPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/cart" component={()=><Cart/>} />
         <Route exact path="/search" component={()=><Search/>} />
         <Route exact path="/add" component={()=><Add/>} />
+        <Route exact path="/instapage" component={()=><MainPage/>} />
       </Switch>
     </div>
   );
