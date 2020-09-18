@@ -42,6 +42,7 @@ const useStyles = makeStyles(()=>({
     topHeadText:{
         display:'flex',
         padding:'10px',
+        paddingTop:'20px',
         justifyContent:'space-between',
         fontFamily:'BYekan',
         textAlign:'center',

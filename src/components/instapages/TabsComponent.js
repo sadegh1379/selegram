@@ -5,8 +5,14 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import clsx from 'clsx';
+import ImageGridListOne from './ImageGridListOne';
+import ImageGridListTwo from './ImageGridListTwo';
+import { Badge, Grid, IconButton, Typography } from '@material-ui/core';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import SpecialSelaItem from './SpecialSaleItem';
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -20,8 +26,8 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
+        <Box>
+          {children}
         </Box>
       )}
     </div>
@@ -45,7 +51,32 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.paper,
     width: '100%',
+    marginBottom:'100px',
   },
+  tab:{
+    fontFamily:'BYekan',
+    display:'flex',
+    justifyContent:'space-between',
+    alignItems:'center',
+    
+  },
+  active:{
+    
+      borderBottom : '2px solid #009FFF',
+    
+  },
+  appBar:{
+    backgroundColor:'#FFFFFF',
+    boxShadow:'none'
+  },
+  imageGrid:{
+    display:'flex',
+    justifyContent:'space-between',
+    height:'auto',
+    
+
+  },
+  
 }));
 
 export default function TabsComponent() {
@@ -63,18 +94,18 @@ export default function TabsComponent() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar className={classes.appBar} position="static" color="inherit">
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
+          indicatorColor={value === 2 ? "secondary":"primary"}
+          textColor={value === 2 ? "secondary":"primary"}
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab  className={clsx(classes.tab)} label={<Badge  badgeContent="8" color="primary">تک محصول</Badge>} {...a11yProps(0)} ></Tab>
+          <Tab className={classes.tab} label={<Badge  badgeContent="2" color="primary">لیست محصولات</Badge>} {...a11yProps(1)} />
+          <Tab className={classes.tab}  label={<Badge  badgeContent="5" color="secondary">فروش ویژه</Badge>} {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -82,13 +113,66 @@ export default function TabsComponent() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Item One
+          {/* grid list */}
+            <ImageGridListOne />
         </TabPanel>
+
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Item Two
+
+          {/* head */}
+            <Grid className="d-flex flex-between padding-10 flex-items-center ">
+              <Grid>
+                  <Typography className="font-14"  display="block" gutterBottom>
+                    تعداد : 12 عدد
+                  </Typography>
+                  <Typography variant="overline" display="block" gutterBottom>
+                    برند : سامسونگ 
+                  </Typography>
+              </Grid>
+              <Grid className="text-left">
+                        <span className="lighblue">جزئیات</span>
+                        <IconButton>
+                            <ArrowBackIosIcon className="lighblue"/>
+                        </IconButton>
+                        <Typography variant="overline" display="block" gutterBottom>
+                          گارانتی : 36 ماهه سام سرویس  
+                      </Typography>
+              </Grid>
+            </Grid>
+          {/* list */}
+          <ImageGridListTwo />
+
+          {/* head */}
+          <Grid className="d-flex flex-between padding-10 flex-items-center">
+              <Grid>
+                  <Typography className="font-14"  display="block" gutterBottom>
+                    تعداد : 12 عدد
+                  </Typography>
+                  <Typography variant="overline" display="block" gutterBottom>
+                    برند : سامسونگ 
+                  </Typography>
+              </Grid>
+              <Grid className="text-left">
+                        <span className="lighblue">جزئیات</span>
+                        <IconButton>
+                            <ArrowBackIosIcon className="lighblue"/>
+                        </IconButton>
+                        <Typography variant="overline" display="block" gutterBottom>
+                          گارانتی : 36 ماهه سام سرویس  
+                      </Typography>
+              </Grid>
+            </Grid>
+          {/* list */}
+          <ImageGridListTwo />
         </TabPanel>
+
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+          {
+            [1,2,3].map((item , i)=>{
+              return(<SpecialSelaItem key={i}/>)
+            })
+          }
+          
         </TabPanel>
       </SwipeableViews>
     </div>

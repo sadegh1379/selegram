@@ -161,4 +161,24 @@ input{
   margin-top: 15px;
 }
 
+.padding-10{
+  padding: 10px;
+}
+
+.MuiBadge-badge{
+  background-color: #009FFF !important;
+}
+.MuiBadge-colorSecondary{
+  background-color: #d62222 !important;
+}
+
+.line-through{
+  text-decoration: line-through;
+}
+
+.MuiGridListTileBar-root{
+  /* background-color: red !important; */
+  height: 20px !important;
+}
+
 

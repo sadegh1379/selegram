@@ -97,7 +97,7 @@ export default function BottomAppBar(props) {
     
             <IconButton  onClick={()=>setActive({home:false , img:true , add:false , search:false , star:false})} edge="start" color="inherit" aria-label="open drawer">
                   <Link to="/instapage">
-                      <img className={clsx(active.img?classes.border:null)}  style={{width:'14.6px'}} src={img} alt="img"/>
+                      <img className={clsx(active.img?classes.border:null)}  style={{width:'35px'}} src={img} alt="img"/>
                   </Link>
             </IconButton>
           
