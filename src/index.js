@@ -4,7 +4,6 @@ import App from './App';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import RTL from './RTL';
 import {BrowserRouter as Router} from 'react-router-dom';
-// import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import {DataProvider} from './context'
 
 const theme = createMuiTheme({

@@ -3,10 +3,12 @@
     src: url('./font/BYekan.ttf') , url('./font/BYekan.eot') , url('./font/BYekan.woff');
   }
 
+
 html , body , #root{
     margin: 0px ;
     padding:0px;
     background-color: #FFFF;
+    overflow-x: hidden;
 }
 .font-yekan{
     font-family: BYekan !important;

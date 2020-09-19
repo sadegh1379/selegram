@@ -49,7 +49,7 @@ export default function ImageGridListOne() {
         {[1,2,3,4,5,6,7,8,9,10,11,12,13].map((tile , i) => (
            
                 <GridListTile   key={i} className="text-center">
-                    <Link to="/">
+                    <Link to="/detailpage">
                         <img style={{width:'100%' , backgroundPosition:'center'}} src={ice} alt="loading" />
                     </Link>
                       <GridListTileBar title={ <p style={{fontSize:'10px'}}>200.300.000</p> }/> 
